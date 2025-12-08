@@ -1,0 +1,126 @@
+import React, { useEffect, useRef } from 'react';
+import { ScenarioCard } from '../components/ScenarioCard';
+import { useUploadStatus } from '../contexts/UploadStatusContext';
+import { useXPath } from '../contexts/XPathContext';
+
+export function Scenario14() {
+    const iframeRef = useRef(null);
+    const { updateStatus } = useUploadStatus();
+    const { showXPath } = useXPath();
+    
+    useEffect(() => {
+        const handleMessage = (event) => {
+            if (event.data && event.data.type === 'update-upload-status' && event.data.scenarioNumber === 14) {
+                updateStatus(14, [{ name: 'uploaded-file' }]);
+            }
+        };
+        
+        window.addEventListener('message', handleMessage);
+        return () => window.removeEventListener('message', handleMessage);
+    }, [updateStatus]);
+    
+    const showInputLocation = () => {
+        showXPath('//iframe[@id="cross-origin-heavy-iframe"]//input[@id="cross-heavy-input"]');
+    };
+    
+    const clickInput = () => {
+        const iframe = iframeRef.current;
+        if (!iframe) return;
+        
+        function tryClick(attempt = 0) {
+            try {
+                if (!iframe.contentDocument) {
+                    if (attempt < 15) {
+                        setTimeout(() => tryClick(attempt + 1), 300);
+                        return;
+                    }
+                    alert('Cannot access iframe content. This may be a cross-origin issue.');
+                    showInputLocation();
+                    return;
+                }
+                
+                const input = iframe.contentDocument.getElementById('cross-heavy-input');
+                if (input) {
+                    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setTimeout(() => {
+                        input.click();
+                        showInputLocation();
+                    }, 200);
+                } else if (attempt < 10) {
+                    setTimeout(() => tryClick(attempt + 1), 400);
+                }
+            } catch (e) {
+                if (attempt < 5) {
+                    setTimeout(() => tryClick(attempt + 1), 300);
+                } else {
+                    alert('Cannot access iframe content (cross-origin). XPath displayed in top bar.');
+                    showInputLocation();
+                }
+            }
+        }
+        
+        tryClick();
+    };
+    
+    const iframeContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                body { margin: 0; padding: 20px; font-family: Arial; position: relative; }
+                .heavy-container { position: relative; padding: 10px; }
+                .overlay { position: absolute; top: 50px; left: 50px; width: 200px; height: 100px; background: rgba(200,200,200,0.9); z-index: 10; padding: 10px; }
+                input[type="file"] { position: absolute; top: 60px; left: 60px; z-index: 1; }
+                .dom-layer { padding: 5px; margin: 2px; border: 1px solid #ccc; }
+            </style>
+        </head>
+        <body>
+            <div class="heavy-container" id="cross-heavy-dom"></div>
+            <input type="file" id="cross-heavy-input" multiple>
+            <div class="overlay">Cross-origin Overlay</div>
+            <div id="cross-heavy-status" style="margin-top: 200px; color: green;"></div>
+            <script>
+                const container = document.getElementById("cross-heavy-dom");
+                for (let i = 0; i < 150; i++) {
+                    const div = document.createElement("div");
+                    div.className = "dom-layer";
+                    div.textContent = "Cross-origin Element " + i;
+                    container.appendChild(div);
+                }
+                document.getElementById("cross-heavy-input").addEventListener("change", function(e) {
+                    const files = Array.from(e.target.files);
+                    document.getElementById("cross-heavy-status").textContent = files.length + " file(s) selected";
+                    if (files.length > 0) {
+                        window.parent.postMessage({ type: 'update-upload-status', scenarioNumber: 14 }, '*');
+                    }
+                });
+            </script>
+        </body>
+        </html>
+    `;
+    
+    return (
+        <ScenarioCard
+            number={14}
+            title="Cross-origin iframe + Heavy DOM + Hidden"
+            description="File input in cross-origin iframe with heavy DOM, covered by overlay"
+            badges={[{ type: 'danger', text: 'Cross-Origin' }]}
+        >
+            <div className="controls-bar">
+                <button className="reveal-button" onClick={showInputLocation}>
+                    📍 Show Input Location
+                </button>
+                <button className="click-here-button" onClick={clickInput}>
+                    📁 Click Here to Upload
+                </button>
+            </div>
+            <iframe
+                ref={iframeRef}
+                id="cross-origin-heavy-iframe"
+                srcDoc={iframeContent}
+                style={{ width: '100%', height: '300px', border: '2px solid #ccc', borderRadius: '6px' }}
+            />
+        </ScenarioCard>
+    );
+}
+
