@@ -66,7 +66,7 @@ export function Scenario13() {
                         if (input) input.click();
                     }, 100);
                 }}>
-                    📁 Click Here to Upload
+                    📁 Upload - Scenario 13
                 </button>
             </div>
             <div className="test-area">

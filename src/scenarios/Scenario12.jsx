@@ -62,7 +62,7 @@ export function Scenario12() {
                     📍 Show Input Location
                 </button>
                 <button className="click-here-button" onClick={clickInput}>
-                    📁 Click Here to Upload
+                    📁 Upload - Scenario 12
                 </button>
             </div>
             <div className="test-area" id="test-area-slot-heavy" style={{ height: '300px', position: 'relative' }}>

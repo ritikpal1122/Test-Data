@@ -82,7 +82,7 @@ export function Scenario10() {
                     📍 Show All Input Locations
                 </button>
                 <button className="click-here-button" onClick={clickInputs}>
-                    📁 Click All Inputs
+                    📁 Upload - Scenario 10 (All Inputs)
                 </button>
             </div>
             <div className="test-area" style={{ height: '400px' }}>

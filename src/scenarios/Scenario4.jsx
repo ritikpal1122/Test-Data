@@ -89,7 +89,7 @@ export function Scenario4() {
                     📍 Show Input Location
                 </button>
                 <button className="click-here-button" onClick={clickInput}>
-                    📁 Click Here to Upload
+                    📁 Upload - Scenario 4
                 </button>
             </div>
             <div className="test-area">

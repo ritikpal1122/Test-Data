@@ -109,7 +109,7 @@ export function Scenario6() {
                     📍 Show Input Location
                 </button>
                 <button className="click-here-button" onClick={clickInput}>
-                    📁 Click Here to Upload (in iframe)
+                    📁 Upload - Scenario 6 (in iframe)
                 </button>
             </div>
             <iframe
