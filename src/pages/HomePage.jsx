@@ -13,6 +13,13 @@ export function HomePage() {
             color: '#667eea'
         },
         {
+            id: 'autoheal',
+            title: '🔄 Autoheal Tests',
+            description: 'Test autohealing with dynamic position changes and text verification',
+            icon: '🔄',
+            color: '#f59e0b'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',

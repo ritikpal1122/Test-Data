@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { FileUploadTestPage } from './pages/FileUploadTestPage';
+import { AutohealTestPage } from './pages/AutohealTestPage';
 
 function App() {
     console.log('App component rendering...');
@@ -12,6 +13,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/test/file-upload" element={<FileUploadTestPage />} />
+                    <Route path="/test/autoheal" element={<AutohealTestPage />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </Router>

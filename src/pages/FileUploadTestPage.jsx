@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UploadStatusProvider } from '../contexts/UploadStatusContext';
 import { XPathProvider } from '../contexts/XPathContext';
@@ -23,6 +23,19 @@ import { Scenario15 } from '../scenarios/Scenario15';
 
 export function FileUploadTestPage() {
     const navigate = useNavigate();
+    
+    // Scroll to section on page load if hash is present
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            setTimeout(() => {
+                const element = document.querySelector(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, []);
     
     return (
         <UploadStatusProvider>
@@ -67,21 +80,21 @@ export function FileUploadTestPage() {
                     </div>
                     
                     <div className="scenario-grid">
-                        <Scenario1 />
-                        <Scenario2 />
-                        <Scenario3 />
-                        <Scenario4 />
-                        <Scenario5 />
-                        <Scenario6 />
-                        <Scenario7 />
-                        <Scenario8 />
-                        <Scenario9 />
-                        <Scenario10 />
-                        <Scenario11 />
-                        <Scenario12 />
-                        <Scenario13 />
-                        <Scenario14 />
-                        <Scenario15 />
+                        <div id="scenario-1"><Scenario1 /></div>
+                        <div id="scenario-2"><Scenario2 /></div>
+                        <div id="scenario-3"><Scenario3 /></div>
+                        <div id="scenario-4"><Scenario4 /></div>
+                        <div id="scenario-5"><Scenario5 /></div>
+                        <div id="scenario-6"><Scenario6 /></div>
+                        <div id="scenario-7"><Scenario7 /></div>
+                        <div id="scenario-8"><Scenario8 /></div>
+                        <div id="scenario-9"><Scenario9 /></div>
+                        <div id="scenario-10"><Scenario10 /></div>
+                        <div id="scenario-11"><Scenario11 /></div>
+                        <div id="scenario-12"><Scenario12 /></div>
+                        <div id="scenario-13"><Scenario13 /></div>
+                        <div id="scenario-14"><Scenario14 /></div>
+                        <div id="scenario-15"><Scenario15 /></div>
                     </div>
                 </div>
             </XPathProvider>
