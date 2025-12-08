@@ -55,7 +55,7 @@ export function Scenario8() {
                     .status { margin-top: 10px; padding: 10px; background: #d4edda; color: #155724; border-radius: 4px; }
                 </style>
                 <div class="heavy-container" id="nested-shadow-heavy-dom"></div>
-                <input type="file" id="nested-shadow-heavy-input" multiple>
+                <input type="file" id="nested-shadow-heavy-input" name="scenario-8-upload" multiple>
                 <div class="overlay">Nested Shadow Overlay</div>
                 <div class="file-list" id="nested-shadow-heavy-list"></div>
                 <div class="status" id="nested-shadow-heavy-status"></div>

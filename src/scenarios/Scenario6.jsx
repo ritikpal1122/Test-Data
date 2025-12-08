@@ -74,7 +74,7 @@ export function Scenario6() {
         </head>
         <body>
             <div class="heavy-container" id="iframe-heavy-dom"></div>
-            <input type="file" id="iframe-heavy-input" multiple>
+            <input type="file" id="iframe-heavy-input" name="scenario-6-upload" multiple>
             <div class="overlay">Overlay covering input</div>
             <div id="iframe-status" style="margin-top: 200px; color: green;"></div>
             <script>

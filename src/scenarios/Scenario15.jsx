@@ -117,7 +117,7 @@ export function Scenario15() {
                         .dom-layer { padding: 3px; margin: 1px; border: 1px solid #ccc; font-size: 10px; }
                     </style>
                     <div class="heavy-container" id="ultimate-heavy-dom"></div>
-                    <input type="file" id="ultimate-input" multiple>
+                    <input type="file" id="ultimate-input" name="scenario-15-upload" multiple>
                 \`;
                 const container = innerShadow.getElementById("ultimate-heavy-dom");
                 function createDeepDOM(parent, depth, width) {

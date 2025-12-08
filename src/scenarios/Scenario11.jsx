@@ -40,6 +40,7 @@ export function Scenario11() {
                             <input
                                 type="file"
                                 id="virtualized-hidden-input"
+                                name="scenario-11-upload"
                                 multiple
                                 onChange={handleFileChange}
                                 style={{ position: 'relative', zIndex: 1 }}

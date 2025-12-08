@@ -76,7 +76,7 @@ export function Scenario14() {
         </head>
         <body>
             <div class="heavy-container" id="cross-heavy-dom"></div>
-            <input type="file" id="cross-heavy-input" multiple>
+            <input type="file" id="cross-heavy-input" name="scenario-14-upload" multiple>
             <div class="overlay">Cross-origin Overlay</div>
             <div id="cross-heavy-status" style="margin-top: 200px; color: green;"></div>
             <script>

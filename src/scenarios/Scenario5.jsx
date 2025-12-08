@@ -20,6 +20,7 @@ export function Scenario5() {
         input.type = 'file';
         input.multiple = true;
         input.id = 'heavy-hidden-input';
+        input.name = 'scenario-5-upload';
         input.style.cssText = 'position: absolute; top: 150px; left: 150px; z-index: 1; width: 200px; height: 40px;';
         input.addEventListener('change', handleFileChange);
         containerRef.current.appendChild(input);
@@ -91,6 +92,7 @@ export function Scenario5() {
                 <input
                     type="file"
                     id="heavy-hidden-input"
+                    name="scenario-5-upload"
                     multiple
                     onChange={handleFileChange}
                     style={{ position: 'absolute', top: '150px', left: '150px', zIndex: 1, width: '200px', height: '40px' }}

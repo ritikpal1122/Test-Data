@@ -26,6 +26,7 @@ export function Scenario10() {
             input.type = 'file';
             input.multiple = true;
             input.id = `react-multi-heavy-input-${index}`;
+            input.name = `scenario-10-upload-${index}`;
             input.style.cssText = 'position: absolute; top: 50px; left: 50px; z-index: 1;';
             input.addEventListener('change', handleFileChange);
             ref.current.appendChild(input);

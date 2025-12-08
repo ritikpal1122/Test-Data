@@ -22,6 +22,7 @@ export function Scenario3() {
                 input.type = 'file';
                 input.multiple = true;
                 input.id = 'deep-nesting-input';
+                input.name = 'scenario-3-upload';
                 input.style.cssText = 'position: absolute; top: 10px; left: 10px; z-index: 1;';
                 input.addEventListener('change', handleFileChange);
                 container.appendChild(input);

@@ -92,7 +92,7 @@ export function Scenario9() {
                         .dom-layer { padding: 5px; margin: 2px; border: 1px solid #ccc; }
                     </style>
                     <div class="heavy-container" id="shadow-heavy-dom"></div>
-                    <input type="file" id="shadow-iframe-input" multiple>
+                    <input type="file" id="shadow-iframe-input" name="scenario-9-upload" multiple>
                     <div id="shadow-iframe-status" style="margin-top: 200px; color: green;"></div>
                 \`;
                 const container = shadow.getElementById("shadow-heavy-dom");

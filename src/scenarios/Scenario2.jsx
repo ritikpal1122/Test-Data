@@ -34,6 +34,7 @@ export function Scenario2() {
                 <input
                     type="file"
                     id="hidden-behind-multi"
+                    name="scenario-2-upload"
                     multiple
                     onChange={handleFileChange}
                     style={{ position: 'absolute', top: '100px', left: '100px', zIndex: 1, width: '200px', height: '40px' }}

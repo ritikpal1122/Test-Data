@@ -27,38 +27,44 @@ export function FileUploadTestPage() {
     return (
         <UploadStatusProvider>
             <XPathProvider>
-                <div style={{
-                    position: 'fixed',
-                    top: '60px',
-                    left: '20px',
-                    zIndex: 10002,
-                    background: 'white',
-                    padding: '10px 20px',
-                    borderRadius: '8px',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-                    cursor: 'pointer'
-                }}
-                onClick={() => navigate('/')}
-                onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#667eea';
-                    e.currentTarget.style.color = 'white';
-                }}
-                onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'white';
-                    e.currentTarget.style.color = 'black';
-                }}
+                <XPathNavBar />
+                <button
+                    onClick={() => navigate('/')}
+                    style={{
+                        position: 'fixed',
+                        top: '10px',
+                        right: '20px',
+                        zIndex: 10005,
+                        background: '#667eea',
+                        color: 'white',
+                        padding: '10px 20px',
+                        border: 'none',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        fontSize: '0.95em',
+                        transition: 'all 0.3s ease',
+                        fontFamily: 'inherit'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.background = '#5568d3';
+                        e.currentTarget.style.transform = 'scale(1.05)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.background = '#667eea';
+                        e.currentTarget.style.transform = 'scale(1)';
+                    }}
                 >
                     ← Back to Home
-                </div>
+                </button>
                 
-                <XPathNavBar />
-                <div className="container">
-                    <div className="header">
+                <div className="container" style={{ paddingTop: '0px' }}>
+                    <StatusDisplayPanel />
+                    <div className="header" style={{ marginTop: '20px' }}>
                         <h1>🔍 Comprehensive File Upload Test - Complex DOM Scenarios</h1>
                         <p>Testing file uploads in complex, heavy DOM structures with overlapping elements</p>
                     </div>
-                    
-                    <StatusDisplayPanel />
                     
                     <div className="scenario-grid">
                         <Scenario1 />

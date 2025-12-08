@@ -84,6 +84,7 @@ export function Scenario13() {
                         <input
                             type="file"
                             id="portal-heavy-input"
+                            name="scenario-13-upload"
                             multiple
                             onChange={handleFileChange}
                             style={{ position: 'absolute', top: '50px', left: '50px', zIndex: 1 }}

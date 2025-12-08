@@ -20,6 +20,7 @@ export function Scenario4() {
         input.type = 'file';
         input.multiple = true;
         input.id = 'wide-branching-input';
+        input.name = 'scenario-4-upload';
         input.style.cssText = 'position: absolute; top: 50px; left: 50px; z-index: 1;';
         input.addEventListener('change', handleFileChange);
         containerRef.current.appendChild(input);

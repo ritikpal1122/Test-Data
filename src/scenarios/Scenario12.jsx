@@ -72,6 +72,7 @@ export function Scenario12() {
                             type="file"
                             slot="file-input"
                             id="slot-heavy-input"
+                            name="scenario-12-upload"
                             multiple
                             onChange={handleFileChange}
                             style={{ position: 'absolute', top: '50px', left: '50px', zIndex: 1, width: '200px', height: '40px' }}

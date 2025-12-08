@@ -33,7 +33,7 @@ export function Scenario7() {
                     .status { margin-top: 10px; padding: 10px; background: #d4edda; color: #155724; border-radius: 4px; }
                 </style>
                 <div class="heavy-container" id="shadow-heavy-dom"></div>
-                <input type="file" id="shadow-heavy-input" multiple>
+                <input type="file" id="shadow-heavy-input" name="scenario-7-upload" multiple>
                 <div class="overlay">Shadow DOM Overlay</div>
                 <div class="file-list" id="shadow-heavy-list"></div>
                 <div class="status" id="shadow-heavy-status"></div>
