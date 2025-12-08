@@ -29,7 +29,7 @@ export function createUploadStatusStore() {
     let mostRecentScenario = null;
     let mostRecentTimestamp = null;
     
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 19; i++) {
         statuses[i] = { uploaded: false, files: [], timestamp: null };
     }
     
