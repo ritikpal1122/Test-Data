@@ -225,7 +225,7 @@ function NormalScenario({ position, onPositionChange, onFileUpload }) {
                     }}
                     onClick={() => document.getElementById('normal-autoheal-input').click()}
                 >
-                    📁 Upload Files
+                    User 1 Input
                 </div>
             </div>
         </div>
@@ -250,7 +250,7 @@ function ShadowDOMScenario({ position, onPositionChange, onFileUpload }) {
             <div class="shadow-container">
                 <div class="shadow-text">${text}</div>
                 <input type="file" id="shadow-autoheal-input" name="shadow-autoheal-upload" multiple style="position: absolute; top: ${position.top}px; left: ${position.left}px; z-index: 1; width: 200px; height: 40px; opacity: 0;">
-                <div class="shadow-upload-btn" style="top: ${position.top}px; left: ${position.left}px;" onclick="document.getElementById('shadow-autoheal-input').click()">📁 Upload Files</div>
+                <div class="shadow-upload-btn" style="top: ${position.top}px; left: ${position.left}px;" onclick="document.getElementById('shadow-autoheal-input').click()">User 2 Input</div>
             </div>
         `;
 
@@ -381,7 +381,7 @@ function ShadowInIframeScenario({ position, onPositionChange, onFileUpload }) {
                     <div class="iframe-shadow-container">
                         <div class="iframe-shadow-text">${text}</div>
                         <input type="file" id="shadow-iframe-autoheal-input" name="shadow-iframe-autoheal-upload" multiple style="position: absolute; top: ${position.top}px; left: ${position.left}px; z-index: 1; width: 200px; height: 40px; opacity: 0;">
-                        <div class="iframe-shadow-upload-btn" style="top: ${position.top}px; left: ${position.left}px;" onclick="document.getElementById('shadow-iframe-autoheal-input').click()">📁 Upload Files</div>
+                        <div class="iframe-shadow-upload-btn" style="top: ${position.top}px; left: ${position.left}px;" onclick="document.getElementById('shadow-iframe-autoheal-input').click()">User 3 Input</div>
                     </div>
                 \`;
                 shadow.getElementById("shadow-iframe-autoheal-input").addEventListener("change", function(e) {
@@ -491,7 +491,7 @@ function IframeInShadowScenario({ position, onPositionChange, onFileUpload }) {
                     ${text}
                 </div>
                 <input type="file" id="iframe-shadow-autoheal-input" name="iframe-shadow-autoheal-upload" multiple style="position: absolute; top: ${position.top}px; left: ${position.left}px; z-index: 1; width: 200px; height: 40px; opacity: 0;">
-                <div style="position: absolute; top: ${position.top}px; left: ${position.left}px; width: 200px; height: 40px; background: #4caf50; color: white; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 500; pointer-events: none;" onclick="document.getElementById('iframe-shadow-autoheal-input').click()">📁 Upload Files</div>
+                <div style="position: absolute; top: ${position.top}px; left: ${position.left}px; width: 200px; height: 40px; background: #4caf50; color: white; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 500; pointer-events: none;" onclick="document.getElementById('iframe-shadow-autoheal-input').click()">User 4 Input</div>
                 <script>
                     document.getElementById("iframe-shadow-autoheal-input").addEventListener("change", function(e) {
                         const files = Array.from(e.target.files);
