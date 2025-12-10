@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { HomePage } from './pages/HomePage';
 import { FileUploadTestPage } from './pages/FileUploadTestPage';
 import { AutohealTestPage } from './pages/AutohealTestPage';
+import { CanvasTestPage } from './pages/CanvasTestPage';
+import { FlutterViewTestPage } from './pages/FlutterViewTestPage';
 
 function App() {
     console.log('App component rendering...');
@@ -14,6 +16,8 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/test/file-upload" element={<FileUploadTestPage />} />
                     <Route path="/test/autoheal" element={<AutohealTestPage />} />
+                    <Route path="/test/canvas" element={<CanvasTestPage />} />
+                    <Route path="/test/flutter-view" element={<FlutterViewTestPage />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </Router>

@@ -20,6 +20,20 @@ export function HomePage() {
             color: '#f59e0b'
         },
         {
+            id: 'canvas',
+            title: '🎨 Canvas Tests',
+            description: 'Interactive canvas testing with login flow and drawing capabilities',
+            icon: '🎨',
+            color: '#9c27b0'
+        },
+        {
+            id: 'flutter-view',
+            title: '🦋 Flutter View Tests',
+            description: 'Test Flutter web view elements with Shadow DOM structure',
+            icon: '🦋',
+            color: '#00d4aa'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',
