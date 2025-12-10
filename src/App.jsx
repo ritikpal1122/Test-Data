@@ -5,6 +5,7 @@ import { FileUploadTestPage } from './pages/FileUploadTestPage';
 import { AutohealTestPage } from './pages/AutohealTestPage';
 import { CanvasTestPage } from './pages/CanvasTestPage';
 import { FlutterViewTestPage } from './pages/FlutterViewTestPage';
+import { EventListenerOverrideTestPage } from './pages/EventListenerOverrideTestPage';
 
 function App() {
     console.log('App component rendering...');
@@ -18,6 +19,7 @@ function App() {
                     <Route path="/test/autoheal" element={<AutohealTestPage />} />
                     <Route path="/test/canvas" element={<CanvasTestPage />} />
                     <Route path="/test/flutter-view" element={<FlutterViewTestPage />} />
+                    <Route path="/test/event-listener-override" element={<EventListenerOverrideTestPage />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </Router>

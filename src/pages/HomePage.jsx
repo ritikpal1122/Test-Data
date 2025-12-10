@@ -34,6 +34,13 @@ export function HomePage() {
             color: '#00d4aa'
         },
         {
+            id: 'event-listener-override',
+            title: '🔧 EventListener Override Tests',
+            description: 'Test addEventListener override issues that break Chrome extension scripts',
+            icon: '🔧',
+            color: '#ef4444'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',

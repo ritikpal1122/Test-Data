@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventListener Override Test - Complete Verification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .status-box {
+            background: #fee2e2;
+            border: 2px solid #ef4444;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .status-title {
+            color: #dc2626;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .section {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .test-button {
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.2s ease;
+        }
+        
+        .test-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .verify-button {
+            padding: 12px 24px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            margin-bottom: 20px;
+        }
+        
+        .verify-button:hover {
+            background: #2563eb;
+            transform: scale(1.02);
+        }
+        
+        .test-input {
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .test-div {
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            border: 2px dashed #9ca3af;
+            cursor: pointer;
+            text-align: center;
+            margin: 10px 0;
+            transition: all 0.2s ease;
+        }
+        
+        .test-div:hover {
+            background: #e5e7eb;
+        }
+        
+        .log-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .log-entry {
+            padding: 8px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #333;
+        }
+        
+        .log-timestamp {
+            color: #667eea;
+        }
+        
+        .log-type {
+            color: #10b981;
+        }
+        
+        .log-target {
+            color: #f59e0b;
+        }
+        
+        .code-block {
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 30px;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        .code-block h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .code-block pre {
+            background: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #e5e7eb;
+        }
+        
+        .warning {
+            color: #9ca3af;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .warning strong {
+            color: #fbbf24;
+        }
+        
+        .verification-result {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 6px solid #6b7280;
+        }
+        
+        .verification-result.success {
+            border-left-color: #10b981;
+            border: 2px solid #10b981;
+        }
+        
+        .verification-result.error {
+            border-left-color: #ef4444;
+            border: 2px solid #ef4444;
+        }
+        
+        .verification-result.warning {
+            border-left-color: #f59e0b;
+            border: 2px solid #f59e0b;
+        }
+        
+        .verification-result.info {
+            border-left-color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+        
+        .result-title {
+            font-weight: bold;
+            font-size: 15px;
+            color: #333;
+        }
+        
+        .result-status {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .result-status.success {
+            background: #10b981;
+        }
+        
+        .result-status.error {
+            background: #ef4444;
+        }
+        
+        .result-status.warning {
+            background: #f59e0b;
+        }
+        
+        .result-status.info {
+            background: #3b82f6;
+        }
+        
+        .result-message {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+        
+        .result-details {
+            color: #9ca3af;
+            font-size: 12px;
+            margin: 0;
+            font-style: italic;
+        }
+        
+        .guide-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .guide-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .guide-section ol {
+            color: #666;
+            line-height: 2;
+            padding-left: 20px;
+        }
+        
+        .console-commands {
+            background: #1f2937;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            color: white;
+        }
+        
+        .console-commands h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .console-commands code {
+            display: block;
+            background: #111827;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            color: #e5e7eb;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+        
+        .command-label {
+            color: #60a5fa;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 EventListener Override Test</h1>
+        <p class="subtitle">Complete verification page to reproduce and test addEventListener override issues with Chrome extensions</p>
+        
+        <div class="status-box" id="statusBox">
+            <div class="status-title" id="statusTitle">⚠️ Override ACTIVE</div>
+            <p id="statusMessage">EventTarget.prototype.addEventListener is currently overridden. This may break extension scripts.</p>
+        </div>
+        
+        <div class="grid-2">
+            <!-- Test Elements -->
+            <div class="section">
+                <h2>🧪 Test Elements</h2>
+                <button class="test-button" id="testButton">Click Me (Button Test)</button>
+                <input type="text" class="test-input" id="testInput" placeholder="Type here (Input Test)">
+                <div class="test-div" id="testDiv">Hover Me (Div MouseEnter Test)</div>
+            </div>
+            
+            <!-- Event Log -->
+            <div class="section">
+                <h2>📝 Event Listener Log</h2>
+                <div class="log-box" id="logBox">
+                    <div class="log-entry">Waiting for events...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Verification Section -->
+        <div class="section" style="background: #f0f9ff; border-color: #3b82f6;">
+            <h2>✅ Verification Tools</h2>
+            <button class="verify-button" onclick="runFullVerification()">Run Full Verification</button>
+            <div id="verificationResults"></div>
+        </div>
+        
+        <!-- Step-by-Step Guide -->
+        <div class="section">
+            <h2>📋 Step-by-Step Verification Guide</h2>
+            <div class="guide-section">
+                <h3>How to Verify the Issue:</h3>
+                <ol>
+                    <li><strong>Enable the override</strong> (it's enabled by default at document_start)</li>
+                    <li><strong>Click "Run Full Verification"</strong> to check override status</li>
+                    <li><strong>Open DevTools</strong> (F12 or Right-click → Inspect)</li>
+                    <li><strong>Check Console tab</strong> for any errors related to addEventListener</li>
+                    <li><strong>Check Sources tab</strong> to see if extension scripts (tagify.js) are loaded</li>
+                    <li><strong>Check Network tab</strong> to see if extension scripts are being loaded</li>
+                    <li><strong>In Console, run:</strong> <code style="background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 12px;">EventTarget.prototype.addEventListener.toString()</code></li>
+                    <li><strong>Verify the output</strong> shows the override function, not the native one</li>
+                    <li><strong>Test with your extension</strong> - load the extension and navigate to this page</li>
+                    <li><strong>Check if tagify.js works</strong> - try using extension features that depend on tagify</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Console Commands -->
+        <div class="section">
+            <h2>💻 Console Commands for Verification</h2>
+            <div class="console-commands">
+                <div class="command-label">// Check if override is active:</div>
+                <code>EventTarget.prototype.addEventListener.toString().includes("eventListenerList")</code>
+                
+                <div class="command-label">// Check original function:</div>
+                <code>typeof EventTarget.prototype._addEventListener</code>
+                
+                <div class="command-label">// Test event listener tracking:</div>
+                <code>const el = document.createElement("div"); el.addEventListener("test", () => {}); console.log(el.eventListenerList);</code>
+                
+                <div class="command-label">// Check for tagify:</div>
+                <code>typeof window.tagify !== "undefined" || typeof window.Tagify !== "undefined"</code>
+                
+                <div class="command-label">// Check all elements with event listeners:</div>
+                <code>document.querySelectorAll("*").forEach(el => { if (el.eventListenerList) console.log(el.tagName, el.eventListenerList); });</code>
+                
+                <div class="command-label">// Get function source code:</div>
+                <code>EventTarget.prototype.addEventListener.toString()</code>
+            </div>
+        </div>
+        
+        <!-- Code Example -->
+        <div class="code-block">
+            <h2>💻 Override Code (Applied at document_start)</h2>
+            <pre>EventTarget.prototype._addEventListener = 
+  EventTarget.prototype.addEventListener;
+
+EventTarget.prototype.addEventListener = function (a, b, c) {
+  if (c == undefined) c = false;
+  this._addEventListener(a, b, c);
+
+  if (!this.eventListenerList) this.eventListenerList = {};
+  if (!this.eventListenerList[a]) this.eventListenerList[a] = [];
+
+  this.eventListenerList[a].push({ listener: b, options: c });
+};</pre>
+            <p class="warning">
+                ⚠️ <strong>Issue:</strong> This override can break Chrome extension scripts (like tagify.js) 
+                that rely on the native addEventListener implementation, especially when the override 
+                is applied before the extension scripts load (at document_start).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // This script runs at document_start to override addEventListener early
+        // This simulates the problematic code that breaks extension scripts
+        
+        // Store original addEventListener
+        EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
+
+        // Override addEventListener (the problematic code)
+        EventTarget.prototype.addEventListener = function (a, b, c) {
+            if (c == undefined) c = false;
+            this._addEventListener(a, b, c);
+
+            if (!this.eventListenerList) this.eventListenerList = {};
+            if (!this.eventListenerList[a]) this.eventListenerList[a] = [];
+
+            this.eventListenerList[a].push({ listener: b, options: c });
+
+            // Log the override
+            logEvent('addEventListener', a, this.tagName || this.constructor.name || 'Unknown');
+        };
+
+        // Logging function
+        function logEvent(type, event, target) {
+            const logBox = document.getElementById('logBox');
+            if (!logBox) return;
+            
+            const timestamp = new Date().toISOString();
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `
+                <span class="log-timestamp">[${timestamp}]</span> 
+                <span class="log-type">${type}</span> 
+                on <span class="log-target">${target}</span>
+                ${event ? ` - Event: <span style="color: #ef4444">${event}</span>` : ''}
+            `;
+            
+            // Remove "Waiting for events..." if it exists
+            if (logBox.children.length === 1 && logBox.children[0].textContent.includes('Waiting')) {
+                logBox.innerHTML = '';
+            }
+            
+            logBox.appendChild(logEntry);
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        // Verification functions
+        function verifyOverrideActive() {
+            const results = [];
+            
+            // Check 1: Verify override exists
+            const hasOverride = EventTarget.prototype.addEventListener !== EventTarget.prototype._addEventListener;
+            results.push({
+                check: 'Override Function Exists',
+                status: hasOverride ? 'success' : 'error',
+                message: hasOverride 
+                    ? 'EventTarget.prototype.addEventListener is overridden' 
+                    : 'EventTarget.prototype.addEventListener is NOT overridden',
+                details: hasOverride 
+                    ? 'The override is active and intercepting addEventListener calls'
+                    : 'The native addEventListener is being used'
+            });
+
+            // Check 2: Verify _addEventListener exists
+            const hasOriginal = typeof EventTarget.prototype._addEventListener === 'function';
+            results.push({
+                check: 'Original Function Stored',
+                status: hasOriginal ? 'success' : 'error',
+                message: hasOriginal 
+                    ? 'Original addEventListener is stored in _addEventListener' 
+                    : 'Original addEventListener is NOT stored',
+                details: hasOriginal 
+                    ? 'The original function is preserved and can be restored'
+                    : 'The original function is missing - this could cause issues'
+            });
+
+            // Check 3: Verify eventListenerList property
+            const testElement = document.createElement('div');
+            testElement.addEventListener('click', () => {});
+            const hasListenerList = testElement.hasOwnProperty('eventListenerList') || 
+                                   testElement.eventListenerList !== undefined;
+            results.push({
+                check: 'eventListenerList Property',
+                status: hasListenerList ? 'success' : 'error',
+                message: hasListenerList 
+                    ? 'eventListenerList property is being created' 
+                    : 'eventListenerList property is NOT being created',
+                details: hasListenerList 
+                    ? 'The override is tracking event listeners in eventListenerList'
+                    : 'The override is not creating the eventListenerList property'
+            });
+
+            // Check 4: Test if extension scripts would be affected
+            try {
+                const testFunc = function() {};
+                testElement.addEventListener('test', testFunc);
+                const listenerExists = testElement.eventListenerList && 
+                                      testElement.eventListenerList.test && 
+                                      testElement.eventListenerList.test.length > 0;
+                results.push({
+                    check: 'Event Listener Tracking',
+                    status: listenerExists ? 'success' : 'error',
+                    message: listenerExists 
+                        ? 'Event listeners are being tracked correctly' 
+                        : 'Event listeners are NOT being tracked',
+                    details: listenerExists 
+                        ? 'The override is successfully intercepting and tracking listeners'
+                        : 'The override is not working as expected'
+                });
+            } catch (error) {
+                results.push({
+                    check: 'Event Listener Tracking',
+                    status: 'error',
+                    message: `Error testing listener tracking: ${error.message}`,
+                    details: 'This indicates the override may be breaking functionality'
+                });
+            }
+
+            // Check 5: Verify console for errors
+            results.push({
+                check: 'Console Errors Check',
+                status: 'warning',
+                message: 'Check browser console for errors',
+                details: 'Open DevTools (F12) and check the Console tab for any errors related to addEventListener or extension scripts'
+            });
+
+            // Check 6: Verify extension script loading
+            results.push({
+                check: 'Extension Script Detection',
+                status: 'info',
+                message: 'Check if extension scripts are loaded',
+                details: 'In DevTools, go to Sources tab and check if tagify.js or other extension scripts are loaded. If they fail to load or have errors, the override may be the cause.'
+            });
+
+            return results;
+        }
+
+        function verifyExtensionScripts() {
+            const results = [];
+            
+            // Check for tagify.js
+            const scripts = Array.from(document.querySelectorAll('script'));
+            const tagifyScript = scripts.find(s => s.src && s.src.includes('tagify'));
+            results.push({
+                check: 'Tagify Script Detection',
+                status: tagifyScript ? 'success' : 'warning',
+                message: tagifyScript 
+                    ? 'Tagify script found in DOM' 
+                    : 'Tagify script not found in DOM (may be injected by extension)',
+                details: tagifyScript 
+                    ? `Script source: ${tagifyScript.src}`
+                    : 'Extension scripts are typically injected dynamically. Check Network tab in DevTools.'
+            });
+
+            // Check for extension-related globals
+            const hasTagifyGlobal = typeof window.tagify !== 'undefined' || 
+                                    typeof window.Tagify !== 'undefined';
+            results.push({
+                check: 'Tagify Global Object',
+                status: hasTagifyGlobal ? 'success' : 'warning',
+                message: hasTagifyGlobal 
+                    ? 'Tagify global object exists' 
+                    : 'Tagify global object not found',
+                details: hasTagifyGlobal 
+                    ? 'Tagify is loaded and accessible'
+                    : 'Tagify may not be loaded or may have failed due to the override'
+            });
+
+            // Check for event listener issues in extension context
+            results.push({
+                check: 'Extension Event Listeners',
+                status: 'info',
+                message: 'Check extension event listeners',
+                details: 'In DevTools Console, run: document.querySelectorAll("*").forEach(el => console.log(el.eventListenerList || "No listener list"))'
+            });
+
+            return results;
+        }
+
+        function runFullVerification() {
+            const resultsContainer = document.getElementById('verificationResults');
+            resultsContainer.innerHTML = '<p style="color: #666; font-style: italic;">Running verification...</p>';
+            
+            setTimeout(() => {
+                const results = [...verifyOverrideActive(), ...verifyExtensionScripts()];
+                displayVerificationResults(results);
+            }, 100);
+        }
+
+        function displayVerificationResults(results) {
+            const resultsContainer = document.getElementById('verificationResults');
+            resultsContainer.innerHTML = '';
+            
+            results.forEach((result, index) => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = `verification-result ${result.status}`;
+                resultDiv.innerHTML = `
+                    <div class="result-header">
+                        <div class="result-title">${result.check}</div>
+                        <span class="result-status ${result.status}">${result.status.toUpperCase()}</span>
+                    </div>
+                    <div class="result-message">${result.message}</div>
+                    <div class="result-details">${result.details}</div>
+                `;
+                resultsContainer.appendChild(resultDiv);
+            });
+        }
+
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        function init() {
+            // Test button
+            const testButton = document.getElementById('testButton');
+            if (testButton) {
+                testButton.addEventListener('click', function() {
+                    logEvent('click', 'click', 'BUTTON');
+                    alert('Button clicked! Check the log.');
+                });
+            }
+
+            // Test input
+            const testInput = document.getElementById('testInput');
+            if (testInput) {
+                testInput.addEventListener('change', function() {
+                    logEvent('change', 'change', 'INPUT');
+                });
+                testInput.addEventListener('input', function() {
+                    logEvent('input', 'input', 'INPUT');
+                });
+            }
+
+            // Test div
+            const testDiv = document.getElementById('testDiv');
+            if (testDiv) {
+                testDiv.addEventListener('mouseenter', function() {
+                    logEvent('mouseenter', 'mouseenter', 'DIV');
+                });
+                testDiv.addEventListener('click', function() {
+                    logEvent('click', 'click', 'DIV');
+                });
+            }
+
+            // Document click
+            document.addEventListener('click', function(e) {
+                logEvent('documentClick', 'click', e.target.tagName || 'Unknown');
+            });
+
+            // Window load
+            window.addEventListener('load', function() {
+                logEvent('windowLoad', 'load', 'WINDOW');
+            });
+
+            logEvent('init', 'DOMContentLoaded', 'DOCUMENT');
+        }
+    </script>
+</body>
+</html>
