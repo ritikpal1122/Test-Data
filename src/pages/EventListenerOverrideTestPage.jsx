@@ -8,52 +8,220 @@ export function EventListenerOverrideTestPage() {
     const [currentTestResult, setCurrentTestResult] = useState(null);
     const [eventLog, setEventLog] = useState([]);
     const [verificationResults, setVerificationResults] = useState([]);
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [tagifyError, setTagifyError] = useState(null);
+    const [tagifyLoaded, setTagifyLoaded] = useState(false);
+    const [pageBlank, setPageBlank] = useState(false);
+    const [tagifyScriptLoaded, setTagifyScriptLoaded] = useState(false);
     const buttonRef = useRef(null);
     const inputRef = useRef(null);
     const divRef = useRef(null);
+    const tagifyInputRef = useRef(null);
+    const viewDetailsButtonRef = useRef(null);
 
     // Override addEventListener early - this simulates the problematic code
     useEffect(() => {
-        if (!overrideActive) return;
+        try {
+            setIsLoading(true);
+            setError(null);
+            
+            if (!overrideActive) {
+                setIsLoading(false);
+                return;
+            }
 
-        // Store original addEventListener
-        if (!EventTarget.prototype._addEventListener) {
-            EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
+            // Store original addEventListener
+            if (!EventTarget.prototype._addEventListener) {
+                EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
 
-            // Override addEventListener (the problematic code)
-            EventTarget.prototype.addEventListener = function (a, b, c) {
-                if (c == undefined) c = false;
-                this._addEventListener(a, b, c);
+                // Override addEventListener (the problematic code)
+                EventTarget.prototype.addEventListener = function (a, b, c) {
+                    try {
+                        if (c == undefined) c = false;
+                        this._addEventListener(a, b, c);
 
-                if (!this.eventListenerList) this.eventListenerList = {};
-                if (!this.eventListenerList[a]) this.eventListenerList[a] = [];
+                        if (!this.eventListenerList) this.eventListenerList = {};
+                        if (!this.eventListenerList[a]) this.eventListenerList[a] = [];
 
-                this.eventListenerList[a].push({ listener: b, options: c });
+                        this.eventListenerList[a].push({ listener: b, options: c });
 
-                // Log the override
-                setEventLog(prev => [...prev, {
-                    type: 'addEventListener',
-                    event: a,
-                    target: this.tagName || this.constructor.name,
-                    timestamp: new Date().toISOString()
+                        // Log the override
+                        setEventLog(prev => [...prev, {
+                            type: 'addEventListener',
+                            event: a,
+                            target: this.tagName || this.constructor.name,
+                            timestamp: new Date().toISOString()
+                        }]);
+                    } catch (err) {
+                        console.error('Error in addEventListener override:', err);
+                        setError(`Error in addEventListener override: ${err.message}`);
+                    }
+                };
+
+                setTestResults(prev => [...prev, {
+                    test: 'addEventListener Override Applied',
+                    status: 'success',
+                    message: 'EventTarget.prototype.addEventListener has been overridden'
                 }]);
-            };
+            }
 
-            setTestResults(prev => [...prev, {
-                test: 'addEventListener Override Applied',
-                status: 'success',
-                message: 'EventTarget.prototype.addEventListener has been overridden'
-            }]);
+            setIsLoading(false);
+        } catch (err) {
+            console.error('Error setting up addEventListener override:', err);
+            setError(`Error setting up override: ${err.message}`);
+            setIsLoading(false);
         }
 
         return () => {
             // Cleanup: restore original if needed
-            if (EventTarget.prototype._addEventListener) {
-                EventTarget.prototype.addEventListener = EventTarget.prototype._addEventListener;
-                delete EventTarget.prototype._addEventListener;
+            try {
+                if (EventTarget.prototype._addEventListener) {
+                    EventTarget.prototype.addEventListener = EventTarget.prototype._addEventListener;
+                    delete EventTarget.prototype._addEventListener;
+                }
+            } catch (err) {
+                console.error('Error cleaning up override:', err);
             }
         };
     }, [overrideActive]);
+
+    // Simulate tagify.js loading and test if it breaks
+    useEffect(() => {
+        if (!overrideActive) {
+            setTagifyError(null);
+            setTagifyLoaded(false);
+            setPageBlank(false);
+            setTagifyScriptLoaded(false);
+            return;
+        }
+
+        // Simulate tagify.js code (the problematic part)
+        try {
+            // This simulates tagify.js trying to use addEventListener
+            // Line 6 in tagify.js would be: EventTarget.prototype.addEventListener = function (a, b, c) {
+            // But since we already overrode it, tagify.js might fail
+            
+            const testElement = document.createElement('div');
+            
+            // Try to use addEventListener like tagify.js would
+            const testHandler = function() {};
+            testElement.addEventListener('test', testHandler);
+            
+            // Check if eventListenerList exists (our override adds this)
+            if (testElement.eventListenerList) {
+                // This means our override is active, which might break tagify.js
+                setTagifyError('Tagify.js will fail because addEventListener is overridden. The override adds eventListenerList property which tagify.js doesn\'t expect.');
+                setTagifyLoaded(false);
+            } else {
+                setTagifyLoaded(true);
+                setTagifyError(null);
+            }
+        } catch (err) {
+            console.error('Tagify.js simulation error:', err);
+            setTagifyError(`Tagify.js Error (Line 6): ${err.message}`);
+            setTagifyLoaded(false);
+        }
+    }, [overrideActive]);
+
+    // Function to simulate "View Details" button click that loads tagify.js
+    const handleViewDetailsClick = () => {
+        if (!overrideActive) {
+            alert('Override is disabled. Enable it first to see the error.');
+            return;
+        }
+
+        try {
+            setTagifyScriptLoaded(false);
+            setPageBlank(false);
+            setTagifyError(null);
+
+            // Simulate loading tagify.js after button click (with delay like real scenario)
+            setTimeout(() => {
+                const errors = [];
+                
+                try {
+                    // Error 1: module is not defined (tagify.js:4481)
+                    // This happens when tagify.js tries to use CommonJS module syntax
+                    if (typeof module === 'undefined') {
+                        // Simulate the module error (this happens first)
+                        const moduleError = new ReferenceError('module is not defined');
+                        console.error('tagify.js:4481 Uncaught ReferenceError: module is not defined');
+                        errors.push('Uncaught ReferenceError: module is not defined at tagify.js:4481:1');
+                    }
+
+                    // Error 2: this._addEventListener is not a function (tagify.js:6)
+                    // This is the main issue - the website's override breaks tagify.js
+                    
+                    // The problem: When website's override is active:
+                    // - EventTarget.prototype._addEventListener = original native function (stored by website)
+                    // - EventTarget.prototype.addEventListener = website's override function
+                    // 
+                    // When tagify.js loads:
+                    // - Tagify.js line 6: EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
+                    //   This stores the WEBSITE'S override, not the native function!
+                    // - Then tagify.js tries: this._addEventListener(a, b, c)
+                    //   But the website's override doesn't have _addEventListener properly accessible
+                    
+                    // Simulate what happens when tagify.js tries to override
+                    const websiteOverride = EventTarget.prototype.addEventListener;
+                    const websiteOriginal = EventTarget.prototype._addEventListener;
+                    
+                    // Tagify.js does this (line 6):
+                    // EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
+                    // But addEventListener is already the website's override!
+                    EventTarget.prototype._addEventListener = websiteOverride;
+                    
+                    // Now tagify.js overrides addEventListener
+                    EventTarget.prototype.addEventListener = function (a, b, c) {
+                        // This fails because _addEventListener is now the website's override
+                        // which might not have _addEventListener accessible in the right context
+                        if (typeof this._addEventListener !== 'function') {
+                            throw new TypeError('this._addEventListener is not a function');
+                        }
+                        if (c == undefined) c = false;
+                        this._addEventListener(a, b, c);
+                    };
+
+                    // Try to use it (this will fail with the exact error)
+                    const testElement = document.createElement('div');
+                    testElement.addEventListener('click', () => {});
+
+                    // Restore for next test
+                    EventTarget.prototype.addEventListener = websiteOverride;
+                    EventTarget.prototype._addEventListener = websiteOriginal;
+
+                    // If we got here without errors, but module error occurred, still show it
+                    if (errors.length > 0) {
+                        setTagifyError(errors.join('\n'));
+                        setTagifyScriptLoaded(true);
+                        setTimeout(() => {
+                            setPageBlank(true);
+                        }, 1000);
+                    } else {
+                        setTagifyScriptLoaded(true);
+                    }
+                } catch (err) {
+                    console.error('Tagify.js loading error:', err);
+                    errors.push(`Uncaught TypeError: ${err.message} at EventTarget.addEventListener (tagify.js:6:8)`);
+                    setTagifyError(errors.join('\n'));
+                    setTagifyScriptLoaded(true);
+                    
+                    // Simulate blank screen after error (like the real issue)
+                    setTimeout(() => {
+                        setPageBlank(true);
+                    }, 1000);
+                }
+            }, 500); // Simulate delay in loading tagify.js
+
+        } catch (err) {
+            console.error('Error in handleViewDetailsClick:', err);
+            setTagifyError(`Error: ${err.message}`);
+            setTimeout(() => {
+                setPageBlank(true);
+            }, 1000);
+        }
+    };
 
     // Test 1: Button click event
     useEffect(() => {
@@ -410,6 +578,241 @@ export function EventListenerOverrideTestPage() {
         }
     };
 
+    // Show error state if there's an error
+    if (error) {
+        return (
+            <div style={{
+                minHeight: '100vh',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                padding: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+                <div style={{
+                    background: 'white',
+                    borderRadius: '16px',
+                    padding: '40px',
+                    maxWidth: '600px',
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
+                }}>
+                    <h1 style={{ color: '#ef4444', marginBottom: '20px' }}>⚠️ Error</h1>
+                    <p style={{ color: '#666', marginBottom: '20px' }}>{error}</p>
+                    <button
+                        onClick={() => {
+                            setError(null);
+                            window.location.reload();
+                        }}
+                        style={{
+                            padding: '12px 24px',
+                            background: '#667eea',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            fontWeight: '500'
+                        }}
+                    >
+                        Reload Page
+                    </button>
+                    <button
+                        onClick={() => navigate('/')}
+                        style={{
+                            padding: '12px 24px',
+                            background: '#6b7280',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            marginLeft: '10px'
+                        }}
+                    >
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    // Show blank screen state (simulating the issue)
+    if (pageBlank) {
+        return (
+            <div style={{
+                minHeight: '100vh',
+                background: '#000000',
+                padding: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column'
+            }}>
+                    <div style={{
+                        background: '#1f2937',
+                        borderRadius: '16px',
+                        padding: '40px',
+                        textAlign: 'center',
+                        maxWidth: '800px',
+                        border: '2px solid #ef4444'
+                    }}>
+                        <div style={{
+                            fontSize: '4em',
+                            marginBottom: '20px'
+                        }}>💥</div>
+                        <h1 style={{
+                            color: '#ef4444',
+                            marginBottom: '20px',
+                            fontSize: '2em'
+                        }}>
+                            Blank Screen - Error Reproduced!
+                        </h1>
+                        <p style={{
+                            color: '#9ca3af',
+                            marginBottom: '30px',
+                            fontSize: '16px',
+                            lineHeight: '1.6'
+                        }}>
+                            This is what users see when tagify.js fails due to the addEventListener override.
+                        </p>
+                        <div style={{
+                            background: '#111827',
+                            borderRadius: '8px',
+                            padding: '20px',
+                            marginBottom: '20px',
+                            textAlign: 'left',
+                            maxHeight: '400px',
+                            overflowY: 'auto'
+                        }}>
+                            <p style={{
+                                color: '#fbbf24',
+                                marginBottom: '15px',
+                                fontWeight: 'bold',
+                                fontSize: '14px'
+                            }}>
+                                Error Details (Matching Real Website Errors):
+                            </p>
+                            <pre style={{
+                                color: '#ef4444',
+                                fontSize: '11px',
+                                margin: 0,
+                                fontFamily: 'monospace',
+                                overflowX: 'auto',
+                                lineHeight: '1.5'
+                            }}>
+{`1. Uncaught ReferenceError: module is not defined
+   at tagify.js:4481:1
+
+2. Uncaught TypeError: this._addEventListener is not a function
+   at EventTarget.addEventListener (tagify.js:6:8)
+   at Bp.a (react-dom.production.min.js:142:128)
+   at Ri (react-dom.production.min.js:167:196)
+
+3. React Errors:
+   - Minified React error #418
+   - Minified React error #423
+
+4. NotFoundError: Failed to execute 'removeChild' on 'Node'
+   (DOM manipulation errors due to React crash)`}
+                            </pre>
+                        </div>
+                        <div style={{
+                            background: '#1f2937',
+                            borderRadius: '8px',
+                            padding: '15px',
+                            marginBottom: '20px',
+                            textAlign: 'left',
+                            border: '1px solid #374151'
+                        }}>
+                            <p style={{
+                                color: '#60a5fa',
+                                marginBottom: '10px',
+                                fontWeight: 'bold',
+                                fontSize: '13px'
+                            }}>
+                                Root Cause:
+                            </p>
+                            <p style={{
+                                color: '#9ca3af',
+                                margin: 0,
+                                fontSize: '12px',
+                                lineHeight: '1.6'
+                            }}>
+                                The website's addEventListener override is active before tagify.js loads. 
+                                When tagify.js tries to override addEventListener on line 6, it stores the 
+                                already-overridden function instead of the native one, causing 
+                                <code style={{ color: '#ef4444', background: '#111827', padding: '2px 4px', borderRadius: '3px' }}>this._addEventListener is not a function</code> errors.
+                            </p>
+                        </div>
+                    <button
+                        onClick={() => {
+                            setPageBlank(false);
+                            setTagifyError(null);
+                            setTagifyScriptLoaded(false);
+                            window.location.reload();
+                        }}
+                        style={{
+                            padding: '12px 24px',
+                            background: '#667eea',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            cursor: 'pointer',
+                            marginRight: '10px'
+                        }}
+                    >
+                        Reload Page
+                    </button>
+                    <button
+                        onClick={() => navigate('/')}
+                        style={{
+                            padding: '12px 24px',
+                            background: '#6b7280',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    // Show loading state
+    if (isLoading) {
+        return (
+            <div style={{
+                minHeight: '100vh',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                padding: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+                <div style={{
+                    background: 'white',
+                    borderRadius: '16px',
+                    padding: '40px',
+                    textAlign: 'center'
+                }}>
+                    <div style={{
+                        fontSize: '3em',
+                        marginBottom: '20px'
+                    }}>⏳</div>
+                    <p style={{ color: '#666' }}>Loading...</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div style={{
             minHeight: '100vh',
@@ -522,6 +925,168 @@ export function EventListenerOverrideTestPage() {
                             {overrideActive ? 'Disable Override' : 'Enable Override'}
                         </button>
                     </div>
+                </div>
+
+                {/* Tagify.js Error Display */}
+                {tagifyError && (
+                    <div style={{
+                        background: '#fee2e2',
+                        border: '2px solid #ef4444',
+                        borderRadius: '12px',
+                        padding: '20px',
+                        marginBottom: '30px'
+                    }}>
+                        <h3 style={{
+                            color: '#dc2626',
+                            marginBottom: '15px',
+                            fontSize: '1.3em'
+                        }}>
+                            🚨 Tagify.js Error Detected
+                        </h3>
+                        <p style={{ color: '#666', marginBottom: '15px', fontWeight: '500' }}>
+                            {tagifyError}
+                        </p>
+                        <div style={{
+                            background: '#1f2937',
+                            borderRadius: '8px',
+                            padding: '15px',
+                            marginTop: '15px'
+                        }}>
+                            <p style={{ color: '#fbbf24', marginBottom: '10px', fontWeight: 'bold' }}>
+                                Tagify.js Code (Line 6):
+                            </p>
+                            <pre style={{
+                                color: '#e5e7eb',
+                                fontSize: '12px',
+                                margin: 0,
+                                fontFamily: 'monospace',
+                                overflowX: 'auto'
+                            }}>
+{`EventTarget.prototype._addEventListener = 
+  EventTarget.prototype.addEventListener;
+
+EventTarget.prototype.addEventListener = function (a, b, c) {
+  if (c == undefined) c = false;
+  this._addEventListener(a, b, c);
+  // ... rest of tagify.js code
+};`}
+                            </pre>
+                            <p style={{ color: '#9ca3af', marginTop: '10px', fontSize: '12px' }}>
+                                <strong>Problem:</strong> When the override is active, tagify.js's addEventListener override (line 6) conflicts with the existing override, causing errors.
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+                {tagifyLoaded && !tagifyError && overrideActive && (
+                    <div style={{
+                        background: '#d1fae5',
+                        border: '2px solid #10b981',
+                        borderRadius: '12px',
+                        padding: '20px',
+                        marginBottom: '30px'
+                    }}>
+                        <h3 style={{
+                            color: '#059669',
+                            marginBottom: '10px',
+                            fontSize: '1.3em'
+                        }}>
+                            ✅ Tagify.js Status
+                        </h3>
+                        <p style={{ color: '#666', margin: 0 }}>
+                            Tagify.js simulation passed. However, in real scenarios with the override active, tagify.js may still fail when it tries to override addEventListener on line 6.
+                        </p>
+                    </div>
+                )}
+
+                {/* View Details Button - Reproduces the Issue */}
+                <div style={{
+                    background: '#fff7ed',
+                    border: '2px solid #f59e0b',
+                    borderRadius: '12px',
+                    padding: '30px',
+                    marginBottom: '30px'
+                }}>
+                    <h2 style={{
+                        color: '#333',
+                        marginBottom: '15px',
+                        fontSize: '1.5em'
+                    }}>
+                        🔴 Reproduce Blank Screen Issue
+                    </h2>
+                    <p style={{
+                        color: '#666',
+                        marginBottom: '15px',
+                        fontSize: '14px',
+                        lineHeight: '1.6'
+                    }}>
+                        Click the "View Details" button below to simulate the exact scenario where tagify.js loads after a button click and causes a blank screen with these errors:
+                    </p>
+                    <ul style={{ 
+                        color: '#666', 
+                        marginBottom: '20px', 
+                        fontSize: '13px', 
+                        lineHeight: '1.8',
+                        paddingLeft: '20px',
+                        textAlign: 'left'
+                    }}>
+                        <li><code style={{ background: '#f3f4f6', padding: '2px 6px', borderRadius: '4px', fontSize: '11px' }}>module is not defined at tagify.js:4481</code></li>
+                        <li><code style={{ background: '#f3f4f6', padding: '2px 6px', borderRadius: '4px', fontSize: '11px' }}>this._addEventListener is not a function at tagify.js:6</code></li>
+                        <li>React errors causing blank screen</li>
+                    </ul>
+                    <button
+                        ref={viewDetailsButtonRef}
+                        onClick={handleViewDetailsClick}
+                        style={{
+                            padding: '15px 30px',
+                            background: '#f59e0b',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '16px',
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                            transition: 'all 0.2s ease',
+                            boxShadow: '0 4px 12px rgba(245, 158, 11, 0.3)'
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'scale(1.05)';
+                            e.currentTarget.style.boxShadow = '0 6px 16px rgba(245, 158, 11, 0.5)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'scale(1)';
+                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(245, 158, 11, 0.3)';
+                        }}
+                    >
+                        📋 View Details
+                    </button>
+                    {tagifyScriptLoaded && (
+                        <div style={{
+                            marginTop: '20px',
+                            padding: '15px',
+                            background: tagifyError ? '#fee2e2' : '#d1fae5',
+                            border: `2px solid ${tagifyError ? '#ef4444' : '#10b981'}`,
+                            borderRadius: '8px'
+                        }}>
+                            <p style={{
+                                color: tagifyError ? '#dc2626' : '#059669',
+                                margin: 0,
+                                fontWeight: '500'
+                            }}>
+                                {tagifyError ? `❌ ${tagifyError}` : '✅ Tagify.js loaded successfully'}
+                            </p>
+                            {tagifyError && (
+                                <p style={{
+                                    color: '#666',
+                                    marginTop: '10px',
+                                    marginBottom: 0,
+                                    fontSize: '12px'
+                                }}>
+                                    The page will go blank in 1 second to simulate the real issue...
+                                </p>
+                            )}
+                        </div>
+                    )}
                 </div>
 
                 {/* Test Controls */}

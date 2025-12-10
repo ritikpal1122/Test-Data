@@ -6,23 +6,26 @@ import { AutohealTestPage } from './pages/AutohealTestPage';
 import { CanvasTestPage } from './pages/CanvasTestPage';
 import { FlutterViewTestPage } from './pages/FlutterViewTestPage';
 import { EventListenerOverrideTestPage } from './pages/EventListenerOverrideTestPage';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
     console.log('App component rendering...');
     
     try {
         return (
-            <Router>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/test/file-upload" element={<FileUploadTestPage />} />
-                    <Route path="/test/autoheal" element={<AutohealTestPage />} />
-                    <Route path="/test/canvas" element={<CanvasTestPage />} />
-                    <Route path="/test/flutter-view" element={<FlutterViewTestPage />} />
-                    <Route path="/test/event-listener-override" element={<EventListenerOverrideTestPage />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-            </Router>
+            <ErrorBoundary>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<ErrorBoundary><HomePage /></ErrorBoundary>} />
+                        <Route path="/test/file-upload" element={<ErrorBoundary><FileUploadTestPage /></ErrorBoundary>} />
+                        <Route path="/test/autoheal" element={<ErrorBoundary><AutohealTestPage /></ErrorBoundary>} />
+                        <Route path="/test/canvas" element={<ErrorBoundary><CanvasTestPage /></ErrorBoundary>} />
+                        <Route path="/test/flutter-view" element={<ErrorBoundary><FlutterViewTestPage /></ErrorBoundary>} />
+                        <Route path="/test/event-listener-override" element={<ErrorBoundary><EventListenerOverrideTestPage /></ErrorBoundary>} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Routes>
+                </Router>
+            </ErrorBoundary>
         );
     } catch (error) {
         console.error('Error in App component:', error);
