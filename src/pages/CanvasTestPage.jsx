@@ -52,18 +52,24 @@ function CanvasTestPageContent() {
     const CANVAS_WIDTH = canvasSize.width || window.innerWidth;
     const CANVAS_HEIGHT = canvasSize.height || window.innerHeight;
 
-    // Login form positions
-    const loginForm = {
-        x: CANVAS_WIDTH / 2 - 250,
-        y: CANVAS_HEIGHT / 2 - 250,
-        width: 500,
-        height: 450,
-        titleY: CANVAS_HEIGHT / 2 - 200,
-        usernameInput: { x: CANVAS_WIDTH / 2 - 220, y: CANVAS_HEIGHT / 2 - 120, width: 440, height: 50 },
-        passwordInput: { x: CANVAS_WIDTH / 2 - 220, y: CANVAS_HEIGHT / 2 - 50, width: 440, height: 50 },
-        loginButton: { x: CANVAS_WIDTH / 2 - 120, y: CANVAS_HEIGHT / 2 + 30, width: 240, height: 55 },
-        errorY: CANVAS_HEIGHT / 2 + 5
+    // Login form positions - ensure proper centering
+    const getLoginFormPositions = () => {
+        const width = CANVAS_WIDTH || window.innerWidth;
+        const height = CANVAS_HEIGHT || window.innerHeight;
+        return {
+            x: width / 2 - 250,
+            y: height / 2 - 250,
+            width: 500,
+            height: 450,
+            titleY: height / 2 - 200,
+            usernameInput: { x: width / 2 - 220, y: height / 2 - 120, width: 440, height: 50 },
+            passwordInput: { x: width / 2 - 220, y: height / 2 - 50, width: 440, height: 50 },
+            loginButton: { x: width / 2 - 120, y: height / 2 + 30, width: 240, height: 55 },
+            errorY: height / 2 + 5
+        };
     };
+    
+    const loginForm = getLoginFormPositions();
 
     // Dashboard layout
     const sidebar = { x: 0, y: 0, width: 260, height: CANVAS_HEIGHT };
@@ -261,6 +267,8 @@ function CanvasTestPageContent() {
 
     // Render login form
     const renderLoginForm = (ctx) => {
+        const form = getLoginFormPositions();
+        
         // Background gradient
         const bgGradient = ctx.createLinearGradient(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         bgGradient.addColorStop(0, '#667eea');
@@ -270,47 +278,47 @@ function CanvasTestPageContent() {
         
         // Login card with shadow
         ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-        drawRoundedRect(ctx, loginForm.x + 5, loginForm.y + 5, loginForm.width, loginForm.height, 20, 'rgba(0, 0, 0, 0.1)', 'transparent', 0);
+        drawRoundedRect(ctx, form.x + 5, form.y + 5, form.width, form.height, 20, 'rgba(0, 0, 0, 0.1)', 'transparent', 0);
         
-        drawRoundedRect(ctx, loginForm.x, loginForm.y, loginForm.width, loginForm.height, 20, '#ffffff', 'transparent', 0);
+        drawRoundedRect(ctx, form.x, form.y, form.width, form.height, 20, '#ffffff', 'transparent', 0);
         
         // Title
         ctx.fillStyle = '#111827';
         ctx.font = 'bold 36px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Welcome Back', CANVAS_WIDTH / 2, loginForm.titleY);
+        ctx.fillText('Welcome Back', CANVAS_WIDTH / 2, form.titleY);
         
         ctx.fillStyle = '#6b7280';
         ctx.font = '16px Arial';
-        ctx.fillText('Sign in to your account', CANVAS_WIDTH / 2, loginForm.titleY + 40);
+        ctx.fillText('Sign in to your account', CANVAS_WIDTH / 2, form.titleY + 40);
         
         // Input fields
         ctx.fillStyle = '#374151';
         ctx.font = '500 14px Arial';
         ctx.textAlign = 'left';
-        ctx.fillText('Username', loginForm.usernameInput.x, loginForm.usernameInput.y - 25);
-        drawInput(ctx, loginForm.usernameInput, username, 'Enter username', activeInput === 'username');
+        ctx.fillText('Username', form.usernameInput.x, form.usernameInput.y - 25);
+        drawInput(ctx, form.usernameInput, username, 'Enter username', activeInput === 'username');
         
-        ctx.fillText('Password', loginForm.passwordInput.x, loginForm.passwordInput.y - 25);
+        ctx.fillText('Password', form.passwordInput.x, form.passwordInput.y - 25);
         const passwordDisplay = password ? '*'.repeat(password.length) : '';
-        drawInput(ctx, loginForm.passwordInput, passwordDisplay, 'Enter password', activeInput === 'password');
+        drawInput(ctx, form.passwordInput, passwordDisplay, 'Enter password', activeInput === 'password');
         
         // Error message
         if (loginError) {
             ctx.fillStyle = '#dc2626';
             ctx.font = '13px Arial';
             ctx.textAlign = 'center';
-            ctx.fillText(loginError, CANVAS_WIDTH / 2, loginForm.errorY);
+            ctx.fillText(loginError, CANVAS_WIDTH / 2, form.errorY);
         }
         
         // Login button
-        drawButton(ctx, loginForm.loginButton, 'Sign In', false, true);
+        drawButton(ctx, form.loginButton, 'Sign In', false, true);
         
         // Help text
         ctx.fillStyle = '#9ca3af';
         ctx.font = '13px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Use: Admin / Admin', CANVAS_WIDTH / 2, loginForm.y + loginForm.height - 30);
+        ctx.fillText('Use: Admin / Admin', CANVAS_WIDTH / 2, form.y + form.height - 30);
     };
 
     // Render dashboard
@@ -831,13 +839,14 @@ function CanvasTestPageContent() {
         const canvasY = y;
         
         if (!isLoggedIn) {
-            if (isPointInRect(canvasX, canvasY, loginForm.usernameInput)) {
+            const form = getLoginFormPositions();
+            if (isPointInRect(canvasX, canvasY, form.usernameInput)) {
                 setActiveInput('username');
                 setInputText(username);
-            } else if (isPointInRect(canvasX, canvasY, loginForm.passwordInput)) {
+            } else if (isPointInRect(canvasX, canvasY, form.passwordInput)) {
                 setActiveInput('password');
                 setInputText(password);
-            } else if (isPointInRect(canvasX, canvasY, loginForm.loginButton)) {
+            } else if (isPointInRect(canvasX, canvasY, form.loginButton)) {
                 handleLogin();
                 setActiveInput(null);
             } else {
@@ -1095,9 +1104,141 @@ function CanvasTestPageContent() {
         setInputText('');
     };
 
+    // Overlay HTML elements for automation
+    const overlayRef = useRef(null);
+
     useEffect(() => {
         render();
     }, [isLoggedIn, username, password, loginError, activeInput, selectedMenu, notifications, inputText, canvasSize, customAlert, formData, formActiveInput]);
+
+    // Separate effect for overlay elements to avoid re-rendering issues
+    useEffect(() => {
+        // Create/update overlay elements for automation
+        if (!overlayRef.current || !containerRef.current) return;
+        
+        const containerRect = containerRef.current.getBoundingClientRect();
+        overlayRef.current.innerHTML = '';
+        
+        if (!isLoggedIn) {
+            const form = getLoginFormPositions();
+            
+            // Username input
+            const usernameInput = document.createElement('input');
+            usernameInput.type = 'text';
+            usernameInput.id = 'canvas-username-input';
+            usernameInput.name = 'username';
+            usernameInput.setAttribute('data-testid', 'canvas-username-input');
+            usernameInput.placeholder = 'Enter username';
+            usernameInput.value = username;
+            usernameInput.style.cssText = `
+                position: absolute;
+                left: ${form.usernameInput.x}px;
+                top: ${form.usernameInput.y}px;
+                width: ${form.usernameInput.width}px;
+                height: ${form.usernameInput.height}px;
+                border: ${activeInput === 'username' ? '2.5px' : '1.5px'} solid ${activeInput === 'username' ? '#667eea' : '#e1e5e9'};
+                border-radius: 10px;
+                padding: 0 18px;
+                font-size: 15px;
+                font-family: Arial, sans-serif;
+                background: ${activeInput === 'username' ? '#ffffff' : '#f8f9fa'};
+                color: ${username ? '#1a1a1a' : '#9ca3af'};
+                z-index: 1000;
+                pointer-events: auto;
+                outline: none;
+                box-sizing: border-box;
+            `;
+            usernameInput.addEventListener('focus', () => {
+                setActiveInput('username');
+                setInputText(username);
+            });
+            usernameInput.addEventListener('input', (e) => {
+                setUsername(e.target.value);
+                setInputText(e.target.value);
+            });
+            usernameInput.addEventListener('blur', () => {
+                // Don't clear activeInput here, let the canvas click handler manage it
+            });
+            overlayRef.current.appendChild(usernameInput);
+            
+            // Password input
+            const passwordInput = document.createElement('input');
+            passwordInput.type = 'password';
+            passwordInput.id = 'canvas-password-input';
+            passwordInput.name = 'password';
+            passwordInput.setAttribute('data-testid', 'canvas-password-input');
+            passwordInput.placeholder = 'Enter password';
+            passwordInput.value = password;
+            passwordInput.style.cssText = `
+                position: absolute;
+                left: ${form.passwordInput.x}px;
+                top: ${form.passwordInput.y}px;
+                width: ${form.passwordInput.width}px;
+                height: ${form.passwordInput.height}px;
+                border: ${activeInput === 'password' ? '2.5px' : '1.5px'} solid ${activeInput === 'password' ? '#667eea' : '#e1e5e9'};
+                border-radius: 10px;
+                padding: 0 18px;
+                font-size: 15px;
+                font-family: Arial, sans-serif;
+                background: ${activeInput === 'password' ? '#ffffff' : '#f8f9fa'};
+                color: ${password ? '#1a1a1a' : '#9ca3af'};
+                z-index: 1000;
+                pointer-events: auto;
+                outline: none;
+                box-sizing: border-box;
+            `;
+            passwordInput.addEventListener('focus', () => {
+                setActiveInput('password');
+                setInputText(password);
+            });
+            passwordInput.addEventListener('input', (e) => {
+                setPassword(e.target.value);
+                setInputText(e.target.value);
+            });
+            passwordInput.addEventListener('blur', () => {
+                // Don't clear activeInput here, let the canvas click handler manage it
+            });
+            overlayRef.current.appendChild(passwordInput);
+            
+            // Login button
+            const loginButton = document.createElement('button');
+            loginButton.type = 'button';
+            loginButton.id = 'canvas-login-button';
+            loginButton.setAttribute('data-testid', 'canvas-login-button');
+            loginButton.textContent = 'Sign In';
+            loginButton.style.cssText = `
+                position: absolute;
+                left: ${form.loginButton.x}px;
+                top: ${form.loginButton.y}px;
+                width: ${form.loginButton.width}px;
+                height: ${form.loginButton.height}px;
+                border: none;
+                border-radius: 12px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                font-size: 15px;
+                font-weight: 500;
+                font-family: Arial, sans-serif;
+                cursor: pointer;
+                z-index: 1000;
+                pointer-events: auto;
+                outline: none;
+                box-sizing: border-box;
+                transition: transform 0.2s ease;
+            `;
+            loginButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                handleLogin();
+            });
+            loginButton.addEventListener('mouseenter', () => {
+                loginButton.style.transform = 'scale(1.02)';
+            });
+            loginButton.addEventListener('mouseleave', () => {
+                loginButton.style.transform = 'scale(1)';
+            });
+            overlayRef.current.appendChild(loginButton);
+        }
+    }, [isLoggedIn, username, password, activeInput, canvasSize]);
 
     return (
         <UploadStatusProvider>
@@ -1126,7 +1267,24 @@ function CanvasTestPageContent() {
                         cursor: 'pointer',
                         display: 'block',
                         width: '100%',
-                        height: '100%'
+                        height: '100%',
+                        position: 'relative',
+                        zIndex: 1
+                    }}
+                />
+                
+                {/* Overlay for automation elements */}
+                <div
+                    ref={overlayRef}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        pointerEvents: 'none',
+                        zIndex: 1000,
+                        overflow: 'hidden'
                     }}
                 />
                 
@@ -1144,7 +1302,7 @@ function CanvasTestPageContent() {
                         fontSize: '14px',
                         fontWeight: '500',
                         cursor: 'pointer',
-                        zIndex: 1000,
+                        zIndex: 10000,
                         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
                         transition: 'all 0.2s ease'
                     }}
