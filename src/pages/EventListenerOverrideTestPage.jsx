@@ -137,80 +137,122 @@ export function EventListenerOverrideTestPage() {
             setTagifyError(null);
 
             // Simulate loading tagify.js after button click (with delay like real scenario)
+            // This matches the real error sequence from the website
             setTimeout(() => {
                 const errors = [];
                 
-                try {
-                    // Error 1: module is not defined (tagify.js:4481)
-                    // This happens when tagify.js tries to use CommonJS module syntax
-                    if (typeof module === 'undefined') {
-                        // Simulate the module error (this happens first)
-                        const moduleError = new ReferenceError('module is not defined');
-                        console.error('tagify.js:4481 Uncaught ReferenceError: module is not defined');
-                        errors.push('Uncaught ReferenceError: module is not defined at tagify.js:4481:1');
-                    }
-
-                    // Error 2: this._addEventListener is not a function (tagify.js:6)
-                    // This is the main issue - the website's override breaks tagify.js
+                // Simulate tagify.js being injected (like the extension does)
+                console.log('VM1480 event-capture-content.js:6 content.js loaded');
+                console.log('VM1480 tagify.js:62 Tagify Injected');
+                
+                // Error: module is not defined (tagify.js:4481)
+                // This is the PRIMARY error - tagify.js tries to use CommonJS module syntax
+                // but 'module' is not defined in the browser context
+                if (typeof module === 'undefined') {
+                    // Simulate the exact error from the real website
+                    const moduleError = new ReferenceError('module is not defined');
+                    console.error('VM1480 tagify.js:4481 Uncaught ReferenceError: module is not defined');
+                    console.error('    at VM1480 tagify.js:4481:1');
+                    console.error('(anonymous) @ VM1480 tagify.js:4481');
                     
+                    errors.push('Uncaught ReferenceError: module is not defined\n    at tagify.js:4481:1');
+                }
+
+                // Simulate the _addEventListener stack overflow error
+                // This happens when tagify.js tries to override addEventListener but the website's override is already active
+                // The result is infinite recursion causing "Maximum call stack size exceeded"
+                try {
                     // The problem: When website's override is active:
                     // - EventTarget.prototype._addEventListener = original native function (stored by website)
                     // - EventTarget.prototype.addEventListener = website's override function
                     // 
                     // When tagify.js loads:
-                    // - Tagify.js line 6: EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
-                    //   This stores the WEBSITE'S override, not the native function!
-                    // - Then tagify.js tries: this._addEventListener(a, b, c)
-                    //   But the website's override doesn't have _addEventListener properly accessible
+                    // - Tagify.js line 5-6: 
+                    //   EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
+                    //   EventTarget.prototype.addEventListener = function (a, b, c) {
+                    //     this._addEventListener(a, b, c); // calls the website's override
+                    //   }
+                    // - But _addEventListener now points to the website's override!
+                    // - Website's override also calls this._addEventListener(a, b, c)
+                    // - This creates infinite recursion: tagify → website → tagify → website → ...
                     
                     // Simulate what happens when tagify.js tries to override
                     const websiteOverride = EventTarget.prototype.addEventListener;
                     const websiteOriginal = EventTarget.prototype._addEventListener;
                     
-                    // Tagify.js does this (line 6):
+                    // Tagify.js does this (line 5-6):
                     // EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
                     // But addEventListener is already the website's override!
                     EventTarget.prototype._addEventListener = websiteOverride;
                     
-                    // Now tagify.js overrides addEventListener
+                    // Track recursion depth to detect infinite loop
+                    let recursionDepth = 0;
+                    const maxRecursion = 10000; // Browser's typical stack limit
+                    
+                    // Now tagify.js overrides addEventListener (line 6)
                     EventTarget.prototype.addEventListener = function (a, b, c) {
-                        // This fails because _addEventListener is now the website's override
-                        // which might not have _addEventListener accessible in the right context
-                        if (typeof this._addEventListener !== 'function') {
-                            throw new TypeError('this._addEventListener is not a function');
+                        recursionDepth++;
+                        if (recursionDepth > maxRecursion) {
+                            // Restore before throwing
+                            EventTarget.prototype.addEventListener = websiteOverride;
+                            EventTarget.prototype._addEventListener = websiteOriginal;
+                            throw new RangeError('Maximum call stack size exceeded');
                         }
                         if (c == undefined) c = false;
+                        // This creates infinite recursion because:
+                        // - this._addEventListener points to website's override
+                        // - Website's override calls this._addEventListener(a, b, c)
+                        // - Which calls tagify's addEventListener again
+                        // - Which calls this._addEventListener again → infinite loop
                         this._addEventListener(a, b, c);
                     };
 
-                    // Try to use it (this will fail with the exact error)
+                    // Try to use it (this will cause Maximum call stack size exceeded)
                     const testElement = document.createElement('div');
                     testElement.addEventListener('click', () => {});
 
-                    // Restore for next test
+                    // Restore for next test (shouldn't reach here if error occurred)
                     EventTarget.prototype.addEventListener = websiteOverride;
                     EventTarget.prototype._addEventListener = websiteOriginal;
 
-                    // If we got here without errors, but module error occurred, still show it
-                    if (errors.length > 0) {
-                        setTagifyError(errors.join('\n'));
+                } catch (err) {
+                    if (err instanceof RangeError && err.message.includes('Maximum call stack size exceeded')) {
+                        console.error('tagify.js:5 Uncaught RangeError: Maximum call stack size exceeded');
+                        console.error('    at EventTarget.addEventListener [as _addEventListener] (tagify.js:5:3)');
+                        console.error('    at EventTarget.addEventListener [as _addEventListener] (tagify.js:6:8)');
+                        console.error('    at EventTarget.addEventListener [as _addEventListener] (tagify.js:6:8)');
+                        console.error('    (infinite recursion loop)');
+                        errors.push(`Uncaught RangeError: Maximum call stack size exceeded\n    at EventTarget.addEventListener [as _addEventListener] (tagify.js:5:3)\n    at EventTarget.addEventListener [as _addEventListener] (tagify.js:6:8)\n    (infinite recursion: tagify → website override → tagify → ...)`);
+                    } else {
+                        console.error('VM1260 tagify.js:6 Uncaught TypeError:', err);
+                        console.error('    at EventTarget.addEventListener (VM1260 tagify.js:6:8)');
+                        errors.push(`Uncaught TypeError: ${err.message}\n    at EventTarget.addEventListener (tagify.js:6:8)`);
+                    }
+                }
+
+                // React errors occur as a cascading effect after tagify.js errors
+                // These happen because the broken event system causes React to fail
+                if (errors.length > 0) {
+                    // Simulate React errors that occur after tagify.js fails
+                    setTimeout(() => {
+                        console.error('react-dom.production.min.js:131 Uncaught Error: Minified React error #418');
+                        console.error('    at lg (react-dom.production.min.js:131:263)');
+                        console.error('    at i (react-dom.production.min.js:293:349)');
+                        console.error('    at Object.g [as apply] (81dac761c1f80dd0705607d65c82ea7ab0011ba05a0:27:41)');
+                        console.error('    at MessagePort.<anonymous> (81dac761c1f80dd0705607d65c82ea7ab0011ba05a0:27:274)');
+                        
+                        errors.push('Uncaught Error: Minified React error #418\n    at react-dom.production.min.js:131:263\n    (Cascading error from broken event system)');
+                        
+                        setTagifyError(errors.join('\n\n'));
                         setTagifyScriptLoaded(true);
+                        
+                        // Trigger blank screen after React errors
                         setTimeout(() => {
                             setPageBlank(true);
-                        }, 1000);
-                    } else {
-                        setTagifyScriptLoaded(true);
-                    }
-                } catch (err) {
-                    console.error('Tagify.js loading error:', err);
-                    errors.push(`Uncaught TypeError: ${err.message} at EventTarget.addEventListener (tagify.js:6:8)`);
-                    setTagifyError(errors.join('\n'));
+                        }, 500);
+                    }, 200);
+                } else {
                     setTagifyScriptLoaded(true);
-                    
-                    // Simulate blank screen after error (like the real issue)
-                    setTimeout(() => {
-                        setPageBlank(true);
-                    }, 1000);
                 }
             }, 500); // Simulate delay in loading tagify.js
 
@@ -704,14 +746,16 @@ export function EventListenerOverrideTestPage() {
 {`1. Uncaught ReferenceError: module is not defined
    at tagify.js:4481:1
 
-2. Uncaught TypeError: this._addEventListener is not a function
-   at EventTarget.addEventListener (tagify.js:6:8)
-   at Bp.a (react-dom.production.min.js:142:128)
-   at Ri (react-dom.production.min.js:167:196)
+2. Uncaught RangeError: Maximum call stack size exceeded
+   at EventTarget.addEventListener [as _addEventListener] (tagify.js:5:3)
+   at EventTarget.addEventListener [as _addEventListener] (tagify.js:6:8)
+   (infinite recursion: tagify → website override → tagify → ...)
 
-3. React Errors:
-   - Minified React error #418
-   - Minified React error #423
+3. Uncaught Error: Minified React error #418
+   at react-dom.production.min.js:131:263
+   at Object.g [as apply] (81dac76...:27:41)
+   at MessagePort.<anonymous> (81dac76...:27:274)
+   (Cascading error from broken event system)
 
 4. NotFoundError: Failed to execute 'removeChild' on 'Node'
    (DOM manipulation errors due to React crash)`}
@@ -1068,21 +1112,47 @@ EventTarget.prototype.addEventListener = function (a, b, c) {
                             border: `2px solid ${tagifyError ? '#ef4444' : '#10b981'}`,
                             borderRadius: '8px'
                         }}>
-                            <p style={{
-                                color: tagifyError ? '#dc2626' : '#059669',
-                                margin: 0,
-                                fontWeight: '500'
-                            }}>
-                                {tagifyError ? `❌ ${tagifyError}` : '✅ Tagify.js loaded successfully'}
-                            </p>
-                            {tagifyError && (
+                            {tagifyError ? (
+                                <div>
+                                    <p style={{
+                                        color: '#dc2626',
+                                        margin: 0,
+                                        marginBottom: '10px',
+                                        fontWeight: '500'
+                                    }}>
+                                        ❌ Tagify.js Errors Detected (Matching Real Website):
+                                    </p>
+                                    <pre style={{
+                                        background: '#1f2937',
+                                        color: '#ef4444',
+                                        padding: '10px',
+                                        borderRadius: '6px',
+                                        fontSize: '11px',
+                                        fontFamily: 'monospace',
+                                        margin: 0,
+                                        overflowX: 'auto',
+                                        whiteSpace: 'pre-wrap',
+                                        wordBreak: 'break-word',
+                                        lineHeight: '1.6'
+                                    }}>
+                                        {tagifyError}
+                                    </pre>
+                                    <p style={{
+                                        color: '#666',
+                                        marginTop: '10px',
+                                        marginBottom: 0,
+                                        fontSize: '12px'
+                                    }}>
+                                        The page will go blank in 1 second to simulate the real issue...
+                                    </p>
+                                </div>
+                            ) : (
                                 <p style={{
-                                    color: '#666',
-                                    marginTop: '10px',
-                                    marginBottom: 0,
-                                    fontSize: '12px'
+                                    color: '#059669',
+                                    margin: 0,
+                                    fontWeight: '500'
                                 }}>
-                                    The page will go blank in 1 second to simulate the real issue...
+                                    ✅ Tagify.js loaded successfully
                                 </p>
                             )}
                         </div>

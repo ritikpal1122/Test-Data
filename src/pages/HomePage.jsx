@@ -41,6 +41,13 @@ export function HomePage() {
             color: '#ef4444'
         },
         {
+            id: 'iframe-shadow-dom',
+            title: '🖼️ Iframe & Shadow DOM Tests',
+            description: 'Comprehensive test data with all iframe types, Shadow DOM, slots, and input/button combinations',
+            icon: '🖼️',
+            color: '#10b981'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',
