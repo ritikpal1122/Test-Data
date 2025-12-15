@@ -48,6 +48,13 @@ export function HomePage() {
             color: '#10b981'
         },
         {
+            id: 'geolocation',
+            title: '📍 Geolocation Tests',
+            description: 'Get current latitude and longitude of the current location using navigator.geolocation',
+            icon: '📍',
+            color: '#3182ce'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',

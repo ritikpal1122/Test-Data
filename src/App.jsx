@@ -7,6 +7,7 @@ import { CanvasTestPage } from './pages/CanvasTestPage';
 import { FlutterViewTestPage } from './pages/FlutterViewTestPage';
 import { EventListenerOverrideTestPage } from './pages/EventListenerOverrideTestPage';
 import IframeShadowDOMTestPage from './pages/IframeShadowDOMTestPage';
+import { GeolocationTestPage } from './pages/GeolocationTestPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                         <Route path="/test/flutter-view" element={<ErrorBoundary><FlutterViewTestPage /></ErrorBoundary>} />
                         <Route path="/test/event-listener-override" element={<ErrorBoundary><EventListenerOverrideTestPage /></ErrorBoundary>} />
                         <Route path="/test/iframe-shadow-dom" element={<ErrorBoundary><IframeShadowDOMTestPage /></ErrorBoundary>} />
+                        <Route path="/test/geolocation" element={<ErrorBoundary><GeolocationTestPage /></ErrorBoundary>} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>
