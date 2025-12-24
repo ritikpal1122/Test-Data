@@ -55,6 +55,13 @@ export function HomePage() {
             color: '#3182ce'
         },
         {
+            id: 'explicit-wait',
+            title: '⏳ Explicit Wait Tests',
+            description: 'Test explicit wait scenarios on elements with sequential panel activation and API call delays',
+            icon: '⏳',
+            color: '#ec4899'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',
