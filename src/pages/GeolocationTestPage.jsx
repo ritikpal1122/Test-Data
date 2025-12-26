@@ -14,6 +14,9 @@ export const GeolocationTestPage = () => {
             return;
         }
 
+        // Show browser alert for permission request
+        alert('This page will request your location permission. Please allow access to get your current location.');
+
         setStatus('⏳ Requesting location… (browser may show a permission popup)');
 
         navigator.geolocation.getCurrentPosition(

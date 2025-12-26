@@ -1,0 +1,3257 @@
+const JsonData = [
+     {
+          "data": [
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKCE6CCPXG1XT2P9KT4JE2C",
+                  "title": "Update Via Curl then  check Accept new version ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:49:01Z",
+                  "updated_at": "2025-12-16T10:49:01Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4391",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKCE6CCPFFPBRSD2NKSC3H4",
+                  "title": "Update Via Curl then Import Same module in session ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:49:01Z",
+                  "updated_at": "2025-12-16T10:49:01Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4390",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ075D0ADRRGG84RRYPG",
+                  "title": "save Session with module in draft State ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4389",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ07NE3D5HMSTJEQ91NY",
+                  "title": "Session Save With Failed Module Step like : prompt , js , query ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4388",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ07BQGR9E5D9M2H101Z",
+                  "title": "Module Verification on Summary Page ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4387",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ076ZWX7V9C883VYVV5",
+                  "title": "Update Module with Vision Query ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4386",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ07242Z4K0T5SCK49JG",
+                  "title": "Replay",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4385",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ0788YZEZ6G2XVZKHXH",
+                  "title": "Adding WEB specific module in mobile",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4384",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ076FCD623DTQ3BK4ZB",
+                  "title": "One Module having new version other is latest",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4383",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ07PMB09D9M6AG59H7D",
+                  "title": "Multiple modules with different type",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4382",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ07ZJ1BSZZMH520T15B",
+                  "title": "delete instruction from already added module from right drawer ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4381",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ07GAQT5YYNE0EYPS1Y",
+                  "title": "delete instruction from already added module from modules page",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4380",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ0718VRFMHTPDAX85WK",
+                  "title": "delete instruction from already added module from modules section",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4379",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ07MEX9Y7JJ89KZ8CSZ",
+                  "title": "Update already added module from modules section",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4378",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ0781NRGA9MMW0NWJ6X",
+                  "title": "Update already added module from right drawer",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4377",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ07NPS9ZXMS798YSF6T",
+                  "title": "Update already added module from modules page",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4376",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ06X6MF3AVPRKX8P7NW",
+                  "title": "Module with single instruction",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4375",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ06DMDV1XC23N2XCYVN",
+                  "title": "Import Same Module in session  after Duplication of Same Module ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4374",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ064ED03AX5TVTBJ03M",
+                  "title": "Import Same Module in session ",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4373",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              },
+              {
+                  "project_id": "01K9YV6J5R53VADHSR1XXQGNV2",
+                  "folder_id": "01KCKBDF08NHV6YASX16M182N9",
+                  "test_case_id": "01KCKBZQ06H6DPAPA1QJJY3E9N",
+                  "title": "Duplicate Modules",
+                  "priority": "Medium",
+                  "type": "NA",
+                  "estimated_time": 10,
+                  "path": [
+                      {
+                          "id": "01K9YVMV47RC0YB7CAYVJ7M2FE",
+                          "name": "KaneAI"
+                      },
+                      {
+                          "id": "01KCKBDF08NHV6YASX16M182N9",
+                          "name": "KTM-6850 - Migration module"
+                      }
+                  ],
+                  "created_by": 3029000,
+                  "updated_by": 3029000,
+                  "created_at": "2025-12-16T10:41:07Z",
+                  "updated_at": "2025-12-16T10:43:06Z",
+                  "status": "Unverified",
+                  "internal_id": "TC-4372",
+                  "automation_status": "Not Automated",
+                  "is_auteur_generated": false,
+                  "code_generation_status": "",
+                  "test_type": "",
+                  "dataset_id": null,
+                  "params_used": false,
+                  "app_id": "",
+                  "is_mobile": false,
+                  "is_safari_supported": false,
+                  "os": "",
+                  "live_mode": false,
+                  "test_config": {
+                      "timezone": {
+                          "region": ""
+                      },
+                      "app_id": "",
+                      "locationCoordinates": {},
+                      "langLocale": {
+                          "language": "",
+                          "locale": ""
+                      },
+                      "googleLoginConfig": {
+                          "email": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          },
+                          "password": {
+                              "value": "",
+                              "scope": "",
+                              "isSecretValue": false
+                          }
+                      },
+                      "driverSettings": {},
+                      "network_throttle": {
+                          "download_speed": 0,
+                          "honor_network": false,
+                          "label": "",
+                          "latency": 0,
+                          "upload_speed": 0,
+                          "value": ""
+                      },
+                      "applePay": {
+                          "enabled": false
+                      },
+                      "kane_ai_mobile_tagging_v2": false,
+                      "proxy": {
+                          "host": "",
+                          "port": ""
+                      },
+                      "app_url": "",
+                      "feature_flags": {
+                          "kane_ai_bifurcation_mode": false,
+                          "kaneai_bulk_automation": false
+                      },
+                      "mobile_browser": false,
+                      "testURL": "",
+                      "request_id": null,
+                      "session_status": "",
+                      "session_started_by": 0,
+                      "charger_data": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "isPlayground": false,
+                      "appMetaData": {
+                          "app_id": "",
+                          "metadata": "",
+                          "name": "",
+                          "version": ""
+                      },
+                      "error": "",
+                      "testId": "",
+                      "status": "",
+                      "host": "",
+                      "ip": "",
+                      "udid": "",
+                      "os": "",
+                      "osVersion": "",
+                      "videoHost": "",
+                      "proxyHost": "",
+                      "proxyPort": "",
+                      "proxyApiPort": "",
+                      "proxyTlsPort": "",
+                      "metaData": "",
+                      "devAccount": "",
+                      "provisionalProfileName": "",
+                      "certificateName": "",
+                      "deviceip": "",
+                      "region": "",
+                      "fullOsVersion": "",
+                      "popupCoords": "",
+                      "deviceName": "",
+                      "platformVersion": "",
+                      "isWebRTCEnabled": false,
+                      "IsUsbStreaming": false,
+                      "dedicatedDevice": false,
+                      "adbPort": "",
+                      "mobileBinaryPort": "",
+                      "bundleId": "",
+                      "isTcpipEnabled": false,
+                      "scrcpyUSB": false,
+                      "resigners": null,
+                      "skinUrl": "",
+                      "skinData": null,
+                      "chargerData": {
+                          "chargerType": "",
+                          "chargerWidth": 0,
+                          "chargerOffsetTop": 0,
+                          "chargerUrl": ""
+                      },
+                      "deviceId": ""
+                  },
+                  "execution_allowed": false,
+                  "latest_commit_id": 0,
+                  "revert_allowed": false,
+                  "session_status": "",
+                  "session_started_by": 0,
+                  "kaneai_version": 0,
+                  "revert_disabled": false
+              }
+          ],
+          "columnMetadata": {
+              "auteur_test_id": {
+                  "display_name": "Auteur Test ID",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "automation_status": {
+                  "display_name": "Automation Status",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "created_at": {
+                  "display_name": "Created At",
+                  "default": true,
+                  "can_be_hidden": true,
+                  "sortable": true
+              },
+              "created_by": {
+                  "display_name": "Created By",
+                  "default": true,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "dataset_id": {
+                  "display_name": "Dataset ID",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "deleted_at": {
+                  "display_name": "Deleted By",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "description": {
+                  "display_name": "Description",
+                  "default": true,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "estimated_time": {
+                  "display_name": "Estimated Time",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "external_id": {
+                  "display_name": "external_id",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "folder_id": {
+                  "display_name": "Folder ID",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "internal_id": {
+                  "display_name": "internal_id",
+                  "default": true,
+                  "can_be_hidden": true,
+                  "sortable": true
+              },
+              "is_auteur_generated": {
+                  "display_name": "KaneAI Generated",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "latest_test_commit_id": {
+                  "display_name": "Latest Test Commit ID",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "organization_id": {
+                  "display_name": "Organization ID",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "preconditions": {
+                  "display_name": "Preconditions",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "priority": {
+                  "display_name": "Priority",
+                  "default": true,
+                  "can_be_hidden": false,
+                  "sortable": true
+              },
+              "project_id": {
+                  "display_name": "Project ID",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "status": {
+                  "display_name": "Status",
+                  "default": true,
+                  "can_be_hidden": false,
+                  "sortable": false
+              },
+              "title": {
+                  "display_name": "Title",
+                  "default": true,
+                  "can_be_hidden": false,
+                  "sortable": true
+              },
+              "type": {
+                  "display_name": "Type",
+                  "default": true,
+                  "can_be_hidden": false,
+                  "sortable": false
+              },
+              "updated_at": {
+                  "display_name": "Updated At",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              },
+              "updated_by": {
+                  "display_name": "Updated By",
+                  "default": false,
+                  "can_be_hidden": true,
+                  "sortable": false
+              }
+          },
+          "filterMetadata": {
+              "automation_status": {
+                  "display_name": "Automation Status",
+                  "options": [
+                      "Automated",
+                      "Not Automated",
+                      "To Be Automated"
+                  ],
+                  "type": "select",
+                  "custom_filters": false
+              },
+              "created_at": {
+                  "display_name": "Created At",
+                  "scopes": [
+                      "created_at_condition_before",
+                      "created_at_condition_after",
+                      "created_at_condition_on",
+                      "created_at_condition_between"
+                  ],
+                  "type": "time.Time",
+                  "custom_filters": false
+              },
+              "created_by": {
+                  "display_name": "Created By",
+                  "type": "int",
+                  "custom_filters": false
+              },
+              "id": {
+                  "display_name": "",
+                  "type": "string",
+                  "custom_filters": false
+              },
+              "internal_id": {
+                  "display_name": "internal_id",
+                  "type": "int",
+                  "custom_filters": false
+              },
+              "is_auteur_generated": {
+                  "display_name": "KaneAI Generated",
+                  "type": "bool",
+                  "custom_filters": false
+              },
+              "jira_issues": {
+                  "display_name": "Issues",
+                  "options": [
+                      "KTM-5372",
+                      "KTM-6082",
+                      "KTM-6009",
+                      "KTM-5895",
+                      "KTM-5912",
+                      "KTM-5672",
+                      "KTM-5809",
+                      "KTM-5712",
+                      "KTM-6089",
+                      "KTM-5926",
+                      "KTM-5928",
+                      "KTM-5626",
+                      "KTM-6020",
+                      "KTM-5960",
+                      "KTM-5820",
+                      "KTM-5641",
+                      "KTM-5829",
+                      "KTM-1408",
+                      "KTM-6101",
+                      "KTM-6114",
+                      "KTM-5537",
+                      "KTM-3000",
+                      "KTM-6070",
+                      "KTM-6216",
+                      "KTM-5983",
+                      "KTM-6189",
+                      "KTM-5619",
+                      "KTM-5848",
+                      "KTM-6694",
+                      "KTM-2945",
+                      "KTM-6589",
+                      "KTM-6637",
+                      "KTM-6385",
+                      "KTM-6438",
+                      "KTM-6691",
+                      "KTM-6572",
+                      "KTM-6706",
+                      "KTM-6807",
+                      "KTM-6641",
+                      "KTM-6389",
+                      "KTM-6850"
+                  ],
+                  "type": "select",
+                  "custom_filters": false
+              },
+              "organization_id": {
+                  "display_name": "Organization ID",
+                  "type": "int",
+                  "custom_filters": false
+              },
+              "priority": {
+                  "display_name": "Priority",
+                  "options": [
+                      "Lowest",
+                      "Low",
+                      "Medium",
+                      "High",
+                      "Highest"
+                  ],
+                  "type": "select",
+                  "custom_filters": false
+              },
+              "status": {
+                  "display_name": "Status",
+                  "options": [
+                      "Unverified",
+                      "Faulty",
+                      "Ready",
+                      "Live",
+                      "Archived",
+                      "Draft",
+                      "New"
+                  ],
+                  "type": "select",
+                  "custom_filters": false
+              },
+              "title": {
+                  "display_name": "Title",
+                  "type": "string",
+                  "custom_filters": false
+              },
+              "type": {
+                  "display_name": "Type",
+                  "options": [
+                      "Accessibility",
+                      "Acceptance",
+                      "Compatibility",
+                      "Destructive",
+                      "Performance",
+                      "Integration",
+                      "Functional",
+                      "Regression",
+                      "Smoke \u0026 Sanity",
+                      "Security",
+                      "User Interface",
+                      "Usability",
+                      "Other",
+                      "NA"
+                  ],
+                  "type": "select",
+                  "custom_filters": false
+              }
+          },
+          "filtered_test_cases": [],
+          "pagination": {
+              "current_page": 1,
+              "last_page": 2,
+              "per_page": 20,
+              "total": 35,
+              "valid_count": null
+          },
+          "rbac_metadata": {
+              "can_create_entity": false,
+              "can_execute_entity": false,
+              "can_edit_entity": false,
+              "can_delete_entity": false,
+              "can_list_entity": false,
+              "can_read_entity": false,
+              "can_update_entity": false
+          }
+      }
+]
+const titles = JsonData.flatMap(group =>
+     group.data.map(item => {
+         let title = item.title.trim();
+         if (title.startsWith("'") && title.endsWith("'")) {
+             title = title.slice(1, -1);
+         }  
+         return title;
+     })
+ );
+ 
+ // Same array, but printed without quotes
+ titles.forEach(title => console.log(title));
