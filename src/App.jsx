@@ -9,6 +9,7 @@ import { EventListenerOverrideTestPage } from './pages/EventListenerOverrideTest
 import IframeShadowDOMTestPage from './pages/IframeShadowDOMTestPage';
 import { GeolocationTestPage } from './pages/GeolocationTestPage';
 import { ExplicitWaitTestPage } from './pages/ExplicitWaitTestPage';
+import { DynamicPositionTestPage } from './pages/DynamicPositionTestPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/test/iframe-shadow-dom" element={<ErrorBoundary><IframeShadowDOMTestPage /></ErrorBoundary>} />
                         <Route path="/test/geolocation" element={<ErrorBoundary><GeolocationTestPage /></ErrorBoundary>} />
                         <Route path="/test/explicit-wait" element={<ErrorBoundary><ExplicitWaitTestPage /></ErrorBoundary>} />
+                        <Route path="/test/dynamic-position" element={<ErrorBoundary><DynamicPositionTestPage /></ErrorBoundary>} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>

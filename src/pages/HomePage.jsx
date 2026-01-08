@@ -62,6 +62,13 @@ export function HomePage() {
             color: '#ec4899'
         },
         {
+            id: 'dynamic-position',
+            title: '🔄 Dynamic Position Tests',
+            description: 'Test clickable elements and input fields that change position on every page refresh',
+            icon: '🔄',
+            color: '#f97316'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',
