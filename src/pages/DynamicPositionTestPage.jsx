@@ -17,30 +17,76 @@ export const DynamicPositionTestPage = () => {
 
     // Generate random positions for elements on each page load without overlaps
     useEffect(() => {
-        // Responsive element dimensions - smaller on mobile to fit more on screen
-        const elementWidth = isMobile ? 100 : 220;
-        const elementHeight = isMobile ? 60 : 120;
-        const padding = isMobile ? 5 : 20;
-        const spacing = isMobile ? 3 : 8;
-        const topOffset = isMobile ? 5 : 100;
-
         // Full page dimensions
         const pageWidth = window.innerWidth;
         const pageHeight = window.innerHeight;
         
-        // On mobile, limit to viewport height to prevent scrolling
-        const maxHeight = isMobile ? pageHeight : pageHeight;
-
-        // Calculate number of columns that fit
-        const availableWidth = pageWidth - padding * 2;
-        const cols = Math.max(1, Math.floor(availableWidth / (elementWidth + spacing)));
+        // Total number of elements
+        const totalElements = 50;
+        
+        // Responsive element dimensions - smaller on mobile to fit more on screen
+        // On desktop, calculate sizes to fit all elements without scrolling
+        let elementWidth, elementHeight, padding, spacing, topOffset, cols;
+        
+        if (isMobile) {
+            elementWidth = 100;
+            elementHeight = 60;
+            padding = 0;
+            spacing = 4;
+            topOffset = 0;
+            const availableWidth = pageWidth - padding * 2;
+            cols = Math.max(1, Math.floor(availableWidth / (elementWidth + spacing)));
+        } else {
+            // Calculate optimal sizes to fit all 50 elements on one page
+            padding = 0;
+            topOffset = 0;
+            const availableHeight = pageHeight - topOffset - padding * 2;
+            const availableWidth = pageWidth - padding * 2;
+            
+            // Try different column counts to find the best fit
+            let bestConfig = { cols: 1, elementWidth: 0, elementHeight: 0, spacing: 0 };
+            
+            for (let testCols = 1; testCols <= 10; testCols++) {
+                const testSpacing = 4; // 4px gap between elements
+                const testElementWidth = Math.floor((availableWidth - (testCols - 1) * testSpacing) / testCols);
+                const testRows = Math.ceil(totalElements / testCols);
+                const testElementHeight = Math.floor((availableHeight - (testRows - 1) * testSpacing) / testRows);
+                
+                // Ensure minimum sizes
+                if (testElementWidth >= 150 && testElementHeight >= 80) {
+                    if (testElementWidth * testElementHeight > bestConfig.elementWidth * bestConfig.elementHeight) {
+                        bestConfig = {
+                            cols: testCols,
+                            elementWidth: testElementWidth,
+                            elementHeight: testElementHeight,
+                            spacing: testSpacing
+                        };
+                    }
+                }
+            }
+            
+            // Use best config or fallback to reasonable defaults
+            if (bestConfig.elementWidth > 0) {
+                elementWidth = bestConfig.elementWidth;
+                elementHeight = bestConfig.elementHeight;
+                spacing = bestConfig.spacing;
+                cols = bestConfig.cols;
+            } else {
+                // Fallback: use smaller fixed sizes
+                elementWidth = 180;
+                elementHeight = 90;
+                spacing = 4;
+                cols = Math.max(1, Math.floor(availableWidth / (elementWidth + spacing)));
+            }
+        }
         
         // Calculate column width (centered on desktop, left-aligned on mobile)
         const totalColumnsWidth = cols * elementWidth + (cols - 1) * spacing;
         const startLeft = isMobile ? padding : (pageWidth - totalColumnsWidth) / 2;
         
         // Calculate max rows that fit on screen
-        const maxRows = Math.floor((maxHeight) / (elementHeight + spacing));
+        const availableHeight = pageHeight - topOffset - padding * 2;
+        const maxRows = Math.floor(availableHeight / (elementHeight + spacing));
 
         // Generate random dynamic ID
         const generateDynamicId = (prefix) => {
@@ -113,8 +159,8 @@ export const DynamicPositionTestPage = () => {
             const colIndex = index % cols;
             let row = columnRows[colIndex];
             
-            // On mobile, wrap to next column if row exceeds max
-            if (isMobile && row >= maxRows) {
+            // Wrap to next column if row exceeds max (for both mobile and desktop)
+            if (row >= maxRows) {
                 // Find column with least rows
                 const minRowIndex = columnRows.indexOf(Math.min(...columnRows));
                 row = columnRows[minRowIndex];
@@ -133,6 +179,8 @@ export const DynamicPositionTestPage = () => {
                     top: top + 'px',
                     left: left + 'px'
                 },
+                width: elementWidth,
+                height: elementHeight,
                 zIndex: 1
             };
         });
@@ -167,10 +215,9 @@ export const DynamicPositionTestPage = () => {
     return (
         <div style={{
             height: '100vh',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            padding: isMobile ? '5px' : '20px',
+            padding: 0,
             position: 'relative',
-            overflow: isMobile ? 'hidden' : 'auto'
+            overflow: 'hidden' // No scrolling on both mobile and desktop
         }}>
             {elements.map((element) => (
                 <div
@@ -184,7 +231,8 @@ export const DynamicPositionTestPage = () => {
                         padding: isMobile ? '5px' : '15px',
                         borderRadius: isMobile ? '6px' : '8px',
                         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                        width: isMobile ? '100px' : '220px',
+                        width: element.width + 'px',
+                        height: element.height + 'px',
                         transition: 'transform 0.2s ease'
                     }}
                     onMouseEnter={(e) => {
