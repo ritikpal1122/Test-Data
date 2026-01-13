@@ -69,6 +69,27 @@ export function HomePage() {
             color: '#f97316'
         },
         {
+            id: 'nested-structures',
+            title: '🏗️ Nested Structures Tests',
+            description: 'Test nested iframes, nested shadow DOM, iframe within shadow DOM, and shadow DOM within iframes',
+            icon: '🏗️',
+            color: '#8b5cf6'
+        },
+        {
+            id: 'nested-structures-dynamic',
+            title: '🔄 Nested Structures Dynamic Tests',
+            description: 'Test nested structures with elements that change position on every page refresh',
+            icon: '🔄',
+            color: '#ec4899'
+        },
+        {
+            id: 'nested-shadow-dom',
+            title: '🌳 Nested Shadow DOM Tests',
+            description: 'Test nested Shadow DOM structures with buttons and inputs in both outer and inner shadow DOMs',
+            icon: '🌳',
+            color: '#9c27b0'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',

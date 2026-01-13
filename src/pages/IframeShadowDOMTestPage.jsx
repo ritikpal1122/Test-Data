@@ -335,7 +335,7 @@ const IframeShadowDOMTestPage = () => {
                     <style>
                         body { font-family: Arial; padding: 20px; background: #d1ecf1; }
                         h2 { color: #0c5460; }
-                        #shadow-host { margin-top: 20px; }
+                        #shadow-host { margin-top: 100px; }
                     </style>
                 </head>
                 <body>
