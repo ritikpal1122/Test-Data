@@ -90,6 +90,13 @@ export function HomePage() {
             color: '#9c27b0'
         },
         {
+            id: 'complete-canvas',
+            title: '🎨 Complete Interactive Canvas',
+            description: 'Full interactive canvas with buttons, inputs, hover tracking, and click history in top navbar',
+            icon: '🎨',
+            color: '#667eea'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',
