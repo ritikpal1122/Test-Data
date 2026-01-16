@@ -97,6 +97,13 @@ export function HomePage() {
             color: '#667eea'
         },
         {
+            id: 'browser-dialogs',
+            title: '🔔 Browser Dialogs & Permissions',
+            description: 'Test browser dialogs (alert, confirm, prompt, beforeunload) and permission APIs (geolocation, camera, microphone, notifications, clipboard, downloads, popups)',
+            icon: '🔔',
+            color: '#ec4899'
+        },
+        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',

@@ -14,6 +14,7 @@ import { NestedStructuresTestPage } from './pages/NestedStructuresTestPage';
 import { NestedStructuresDynamicPage } from './pages/NestedStructuresDynamicPage';
 import NestedShadowDOMPage from './pages/NestedShadowDOMPage';
 import { CompleteCanvasPage } from './pages/CompleteCanvasPage';
+import { BrowserDialogsTestPage } from './pages/BrowserDialogsTestPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
                         <Route path="/test/nested-structures-dynamic" element={<ErrorBoundary><NestedStructuresDynamicPage /></ErrorBoundary>} />
                         <Route path="/test/nested-shadow-dom" element={<ErrorBoundary><NestedShadowDOMPage /></ErrorBoundary>} />
                         <Route path="/test/complete-canvas" element={<ErrorBoundary><CompleteCanvasPage /></ErrorBoundary>} />
+                        <Route path="/test/browser-dialogs" element={<ErrorBoundary><BrowserDialogsTestPage /></ErrorBoundary>} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </Router>
