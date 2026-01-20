@@ -1374,7 +1374,6 @@ const IframeShadowDOMTestPage = () => {
                                                     />
                                                 </div>
                                             )}
-                                            {scenario.id === 10 && <iframe ref={iframe10Ref} style={{ width: '100%', height: '600px', border: 'none', borderRadius: '4px' }} />}
                                         </div>
                                     </div>
                                 );

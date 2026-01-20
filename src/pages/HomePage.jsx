@@ -48,62 +48,6 @@ export function HomePage() {
             color: '#10b981'
         },
         {
-            id: 'geolocation',
-            title: '📍 Geolocation Tests',
-            description: 'Get current latitude and longitude of the current location using navigator.geolocation',
-            icon: '📍',
-            color: '#3182ce'
-        },
-        {
-            id: 'explicit-wait',
-            title: '⏳ Explicit Wait Tests',
-            description: 'Test explicit wait scenarios on elements with sequential panel activation and API call delays',
-            icon: '⏳',
-            color: '#ec4899'
-        },
-        {
-            id: 'dynamic-position',
-            title: '🔄 Dynamic Position Tests',
-            description: 'Test clickable elements and input fields that change position on every page refresh',
-            icon: '🔄',
-            color: '#f97316'
-        },
-        {
-            id: 'nested-structures',
-            title: '🏗️ Nested Structures Tests',
-            description: 'Test nested iframes, nested shadow DOM, iframe within shadow DOM, and shadow DOM within iframes',
-            icon: '🏗️',
-            color: '#8b5cf6'
-        },
-        {
-            id: 'nested-structures-dynamic',
-            title: '🔄 Nested Structures Dynamic Tests',
-            description: 'Test nested structures with elements that change position on every page refresh',
-            icon: '🔄',
-            color: '#ec4899'
-        },
-        {
-            id: 'nested-shadow-dom',
-            title: '🌳 Nested Shadow DOM Tests',
-            description: 'Test nested Shadow DOM structures with buttons and inputs in both outer and inner shadow DOMs',
-            icon: '🌳',
-            color: '#9c27b0'
-        },
-        {
-            id: 'complete-canvas',
-            title: '🎨 Complete Interactive Canvas',
-            description: 'Full interactive canvas with buttons, inputs, hover tracking, and click history in top navbar',
-            icon: '🎨',
-            color: '#667eea'
-        },
-        {
-            id: 'browser-dialogs',
-            title: '🔔 Browser Dialogs & Permissions',
-            description: 'Test browser dialogs (alert, confirm, prompt, beforeunload) and permission APIs (geolocation, camera, microphone, notifications, clipboard, downloads, popups)',
-            icon: '🔔',
-            color: '#ec4899'
-        },
-        {
             id: 'form-input',
             title: '📝 Form Input Tests',
             description: 'Test various form inputs and validation scenarios',
@@ -138,10 +82,9 @@ export function HomePage() {
         {
             id: 'modal-dialog',
             title: '💬 Modal & Dialog Tests',
-            description: 'Test modal dialogs and popups',
+            description: 'Test modal dialogs and popup windows',
             icon: '💬',
-            color: '#4299e1',
-            comingSoon: true
+            color: '#4299e1'
         }
     ];
     
